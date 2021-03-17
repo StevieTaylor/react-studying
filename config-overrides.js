@@ -2,7 +2,7 @@
  * @Author: Stevie
  * @Date: 2021-03-01 23:27:48
  * @LastEditors: Stevie
- * @LastEditTime: 2021-03-02 00:03:24
+ * @LastEditTime: 2021-03-18 00:55:33
  * @Description: file content
  */
 const path = require('path');
@@ -12,7 +12,8 @@ const {
     disableEsLint,
     addLessLoader,
     useBabelRc,
-    addWebpackAlias
+    addWebpackAlias,
+    addBabelPresets
 } = require("customize-cra");
 
 module.exports = {
@@ -42,7 +43,11 @@ module.exports = {
         }),
         // - 添加别名
         addWebpackAlias({
-            ["@"]: path.resolve(__dirname, "src"),
-        })
+            "@": path.resolve(__dirname, "./src"),
+            "@pages": path.resolve(__dirname, "./src/pages")
+        }),
+        addBabelPresets(
+            "@babel/preset-typescript"
+        )
     ),
 };
