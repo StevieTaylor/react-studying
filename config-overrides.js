@@ -1,8 +1,8 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-01 23:27:48
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-03-18 18:32:53
+ * @LastEditors: Stevie
+ * @LastEditTime: 2021-03-19 01:09:00
  * @Description: file content
  */
 const path = require('path');
@@ -34,8 +34,14 @@ const lessLoaderOptions = {
     },
 }
 
-const devServerOptions = (config)=>{
-   
+// - 配置webpack devServer
+const devServerOptions = () => config => {
+    return {
+        ...config,
+        contentBase: path.join(__dirname, 'build'),
+        compress: true,
+        port: 2333
+    }
 }
 
 module.exports = {
