@@ -2,22 +2,27 @@
  * @Author: Stevie
  * @Date: 2021-03-17 22:29:37
  * @LastEditors: Stevie
- * @LastEditTime: 2021-03-18 00:51:40
+ * @LastEditTime: 2021-03-20 22:48:44
  * @Description: file content
  */
 import React, { Component } from 'react'
 import { Layout, Menu } from 'antd'
+import { createFromIconfontCN } from '@ant-design/icons';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  HomeOutlined,
-  LoginOutlined
 } from '@ant-design/icons'
 import './index.less'
 import { Route, withRouter } from 'react-router-dom'
 import { IRouterProps, ROUTES } from '../router/config'
 
 const { Header, Sider, Content } = Layout
+const IconFont = createFromIconfontCN({
+  scriptUrl: [
+    '//at.alicdn.com/t/font_2433703_oi6fcx7574e.js',
+    '//at.alicdn.com/t/font_2433942_z9n7zdrblm9.js'
+  ]
+});
 
 class PageLayout extends Component<any, any> {
   state = {
@@ -41,12 +46,15 @@ class PageLayout extends Component<any, any> {
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="/home" icon={<HomeOutlined />} onClick={this.direct}>
-              home
-            </Menu.Item>
-            <Menu.Item key="/login" icon={<LoginOutlined />} onClick={this.direct}>
-              login
-            </Menu.Item>
+            {
+              ROUTES.map((item) => {
+                return (
+                  <Menu.Item key={item.path} onClick={this.direct}>
+                    <IconFont type={`icon-${item.icon}`} />{item.name}
+                  </Menu.Item>
+                )
+              })
+            }
           </Menu>
         </Sider>
         <Layout className="site-layout">
