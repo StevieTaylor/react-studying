@@ -1,6 +1,7 @@
 import { RouteComponentProps } from "react-router-dom";
 import Home from '@pages/home/home';
 import JSX from '@pages/JSX/index';
+import Components from '../pages/components/index';
 
 export interface IRouterProps {
     path: string;
@@ -23,8 +24,15 @@ export const ROUTES: IRouterProps[] = [
         path: "/jsx",
         exact: true,
         component: JSX,
-        icon: 'queqintongji',
+        icon: 'duihua',
         name: 'jsx'
+    },
+    {
+        path: '/component',
+        exact: true,
+        component: Components,
+        icon: 'buju',
+        name: 'component'
     }
 ]
 
