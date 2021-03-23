@@ -2,7 +2,7 @@
  * @Author: Stevie
  * @Date: 2021-03-23 00:57:42
  * @LastEditors: Stevie
- * @LastEditTime: 2021-03-23 02:03:01
+ * @LastEditTime: 2021-03-24 00:35:03
  * @Description: file content
  */
 
@@ -12,7 +12,7 @@ const FunctionalComponent = () => {
     return (
         <div>
             <h2>一、函数式组件</h2>
-            <p>适用于简单组件</p>
+            <p>适用于简单组件(无状态state)</p>
         </div>
     )
 }
