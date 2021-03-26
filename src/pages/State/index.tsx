@@ -2,22 +2,38 @@
  * @Author: Stevie
  * @Date: 2021-03-24 00:28:27
  * @LastEditors: Stevie
- * @LastEditTime: 2021-03-24 02:16:18
+ * @LastEditTime: 2021-03-26 23:50:13
  * @Description: file content
  */
-import { Button, Divider, message } from "antd"
 import React from "react"
+import { Button, Divider, message, Typography } from "antd"
+
+const { Paragraph } = Typography;
+
+interface IContent {
+    [key: string]: any
+}
 
 interface IState {
     title: string;
+    content: IContent;
+    isEditable: boolean;
 }
 
 class State extends React.Component<{}, IState> {
 
+    tooltip: string = '点击此处进行编辑'
+
     constructor(props) {
         super(props)
         this.state = {
-            title: '原标题'
+            title: '原标题',
+            content: {
+                tip1: 'State不可以通过赋值直接更改',
+                tip2: '状态必须通过setState来进行更改',
+                tip3: 'State更新是合并，不是覆盖'
+            },
+            isEditable: false
         }
     }
 
@@ -42,13 +58,27 @@ class State extends React.Component<{}, IState> {
     render() {
         return (
             <div>
-                <h2>{this.state.title}</h2>
+                <div className="title">
+                    <h2>{this.state.title}</h2>
+                    <Button onClick={this.changeTitle} ghost={true} danger={true}>改变标题</Button>
+                    <Divider type='vertical'></Divider>
+                    <Button onClick={this.changeTitle2} type='primary' ghost={true}>改变标题</Button>
+                    <Divider type='vertical'></Divider>
+                    <Button onClick={this.resetTitle}>复原标题</Button>
+                </div>
                 <Divider type='horizontal'></Divider>
-                <Button onClick={this.changeTitle} ghost={true} danger={true}>改变标题</Button>
-                <Divider type='vertical'></Divider>
-                <Button onClick={this.changeTitle2} type='primary' ghost={true}>改变标题</Button>
-                <Divider type='vertical'></Divider>
-                <Button onClick={this.resetTitle}>复原标题</Button>
+                <div className="content">
+                    <h2>内容</h2>
+                    <Paragraph editable={{
+                        tooltip: this.tooltip
+                    }}>{this.state.content.tip1}</Paragraph>
+                    <Paragraph editable={{
+                        tooltip: this.tooltip
+                    }}>{this.state.content.tip2}</Paragraph>
+                    <Paragraph editable={{
+                        tooltip: this.tooltip
+                    }}>{this.state.content.tip3}</Paragraph>
+                </div>
             </div>
         )
     }
