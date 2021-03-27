@@ -1,8 +1,17 @@
+/*
+ * @Author: Stevie
+ * @Date: 2021-03-27 14:49:21
+ * @LastEditTime: 2021-03-27 21:00:27
+ * @LastEditors: Stevie
+ * @Description: 
+ * @FilePath: /react-learning-demo/src/router/config.ts
+ */
 import { RouteComponentProps } from "react-router-dom";
 import Home from '../pages/home';
 import JSX from '../pages/JSX';
 import Components from '../pages/components';
 import State from '../pages/State';
+import Props from '../pages/Props'
 
 export interface IRouterProps {
     path: string;
@@ -41,6 +50,13 @@ export const ROUTES: IRouterProps[] = [
         component: State,
         icon: 'zhinan',
         name: 'State'
+    },
+    {
+        path: '/props',
+        exact: true,
+        component: Props,
+        icon: 'xiaoxi',
+        name: 'Props'
     }
 ]
 
