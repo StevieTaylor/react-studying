@@ -2,11 +2,12 @@
  * @Author: Stevie
  * @Date: 2021-03-24 00:28:27
  * @LastEditors: Stevie
- * @LastEditTime: 2021-03-27 16:56:41
+ * @LastEditTime: 2021-03-27 20:54:06
  * @Description: file content
  */
 import React from "react"
 import { Button, Divider, message, Typography } from "antd"
+import SimplifiedState from './Simplify';
 
 const { Paragraph } = Typography;
 
@@ -31,9 +32,9 @@ class State extends React.Component<{}, IState> {
         this.state = {
             title: '原标题',
             content: {
-                tip1: 'State不可以通过赋值直接更改',
-                tip2: 'State必须通过setState来进行更改',
-                tip3: 'State更新是合并，不是覆盖，即对于同名的进行替换'
+                tip1: '1. State不可以通过赋值直接更改',
+                tip2: '2. State必须通过setState来进行更改',
+                tip3: '3. State更新是合并，不是覆盖，即对于同名的进行替换'
             },
             isEditable: false
         }
@@ -42,7 +43,7 @@ class State extends React.Component<{}, IState> {
     }
 
     // - changeTitle是作为onClick的回调，不是通过实例调用的，即直接调用
-    // ! class类中的方法默认开启了局部严格模式，所以changeTitle的this指向了undefined
+    // ! 类和模块的内部，默认就是严格模式，所以changeTitle的this指向了undefined
     changeTitle() {
         this ? this.setState({ title: '新标题' }) : message.warning('this is undefined, can not change title')
     }
@@ -100,6 +101,8 @@ class State extends React.Component<{}, IState> {
                 {this.renderTitle()}
                 <Divider type='horizontal'></Divider>
                 {this.renderContent()}
+                <Divider type='horizontal'></Divider>
+                <SimplifiedState />
             </div>
         )
     }
