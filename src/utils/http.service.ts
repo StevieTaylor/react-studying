@@ -2,12 +2,10 @@
  * @Author: Stevie
  * @Date: 2021-03-28 17:15:01
  * @LastEditors: Stevie
- * @LastEditTime: 2021-03-28 18:03:14
+ * @LastEditTime: 2021-03-28 18:27:17
  * @Description: file content
  */
 import axios, { Method } from 'axios'
-
-axios.defaults.withCredentials = true;
 axios.defaults.timeout = 3000;
 
 const CODEMESSAGE = {
