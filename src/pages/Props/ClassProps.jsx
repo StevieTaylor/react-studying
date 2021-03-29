@@ -2,12 +2,12 @@
  * @Author: Stevie
  * @Date: 2021-03-30 00:18:41
  * @LastEditors: Stevie
- * @LastEditTime: 2021-03-30 01:39:04
+ * @LastEditTime: 2021-03-30 02:05:45
  * @Description: class组件传递props
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Descriptions } from 'antd'
+import { Descriptions, Divider } from 'antd'
 
 class ClassProps extends React.Component {
   // - 使用class的static关键字可以将属性绑定到类本身上，即 class.属性
@@ -30,21 +30,32 @@ class ClassProps extends React.Component {
   }
 
   render() {
-    const title = `${this.props.name}的个人信息`;
-    const labels = ['姓名', '性别', '年龄', '生日', '城市', '邮政编码'];
+    const { name, gender, age, birthday, city, zipcode } = this.props
+    const title = `${name}的个人信息`;
+    const userInfo = {
+      姓名: name,
+      性别: gender,
+      年龄: age,
+      生日: birthday,
+      城市: city,
+      邮政编码: zipcode,
+    }
     return (
-      <Descriptions
-        title={title}
-        bordered
-        column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
-      >
-        <Descriptions.Item label={labels[0]}>{this.props.name}</Descriptions.Item>
-        <Descriptions.Item label={labels[1]}>{this.props.gender}</Descriptions.Item>
-        <Descriptions.Item label={labels[2]}>{this.props.age}</Descriptions.Item>
-        <Descriptions.Item label={labels[3]}>{this.props.birthday}</Descriptions.Item>
-        <Descriptions.Item label={labels[4]}>{this.props.city}</Descriptions.Item>
-        <Descriptions.Item label={labels[5]}>{this.props.zipcode}</Descriptions.Item>
-      </Descriptions>
+      <div>
+        <h2>一、class组件传递props</h2>
+        <Divider type='horizontal'></Divider>
+        <Descriptions
+          title={title}
+          bordered
+          column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
+        >
+          {Object.keys(userInfo).map((item) => {
+            return (
+              <Descriptions.Item label={item}>{userInfo[item]}</Descriptions.Item>
+            )
+          })}
+        </Descriptions>
+      </div>
     )
   }
 }
