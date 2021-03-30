@@ -2,7 +2,7 @@
  * @Author: Stevie
  * @Date: 2021-03-30 01:18:19
  * @LastEditors: Stevie
- * @LastEditTime: 2021-03-30 02:05:52
+ * @LastEditTime: 2021-03-30 11:26:15
  * @Description: 函数组件传递props
  */
 import PropTypes from 'prop-types'
@@ -34,7 +34,7 @@ function FunctionProps(props) {
       >
         {Object.keys(userInfo).map((item) => {
           return (
-            <Descriptions.Item label={item}>{userInfo[item]}</Descriptions.Item>
+            <Descriptions.Item label={item} key={item.toString()}>{userInfo[item]}</Descriptions.Item>
           )
         })}
       </Descriptions>
