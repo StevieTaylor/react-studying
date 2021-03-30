@@ -2,7 +2,7 @@
  * @Author: Stevie
  * @Date: 2021-03-30 00:18:41
  * @LastEditors: Stevie
- * @LastEditTime: 2021-03-30 02:05:45
+ * @LastEditTime: 2021-03-30 11:28:22
  * @Description: class组件传递props
  */
 import React from 'react'
@@ -51,7 +51,7 @@ class ClassProps extends React.Component {
         >
           {Object.keys(userInfo).map((item) => {
             return (
-              <Descriptions.Item label={item}>{userInfo[item]}</Descriptions.Item>
+              <Descriptions.Item label={item} key={item.toString()}>{userInfo[item]}</Descriptions.Item>
             )
           })}
         </Descriptions>
