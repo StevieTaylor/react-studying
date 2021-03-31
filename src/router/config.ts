@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-03-27 21:00:27
+ * @LastEditTime: 2021-03-31 06:09:57
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -12,6 +12,7 @@ import JSX from '../pages/JSX';
 import Components from '../pages/components';
 import State from '../pages/State';
 import Props from '../pages/Props'
+import Refs from '../pages/Refs'
 
 export interface IRouterProps {
     path: string;
@@ -57,7 +58,14 @@ export const ROUTES: IRouterProps[] = [
         component: Props,
         icon: 'xiaoxi',
         name: 'Props'
-    }
+    },
+    {
+        path: '/refs',
+        exact: true,
+        component: Refs,
+        icon: 'wode',
+        name: 'Refs'
+    },
 ]
 
 
