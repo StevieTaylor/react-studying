@@ -2,15 +2,19 @@
  * @Author: Stevie
  * @Date: 2021-04-02 00:24:45
  * @LastEditors: Stevie
- * @LastEditTime: 2021-04-05 01:35:53
+ * @LastEditTime: 2021-04-07 00:56:34
  * @Description: file content
  */
 import React from 'react'
-import { Button, Col, Divider, Input, message, Row } from 'antd'
+import { Alert, Button, Col, Divider, Input, message, Row } from 'antd'
 
 class CallbackRefs extends React.Component {
-  inputElement: Input | undefined
-  inputElement2: Input | undefined
+  inputElement: Input | undefined = undefined;
+  inputElement2: Input | undefined = undefined;
+
+  state = {
+    dirty: false
+  }
 
   showValue = () => {
     message.info(this.inputElement?.state.value)
@@ -23,6 +27,16 @@ class CallbackRefs extends React.Component {
   // - React 会自动调用绑定在ref属性上的回调函数
   refCallback = (element: Input) => {
     this.inputElement2 = element
+  }
+
+  onChange = (e: any) => {
+    if (e.nativeEvent.data) {
+      this.setState({ dirty: true })
+    }
+  }
+
+  onClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    console.log(e);
   }
 
   render() {
@@ -41,6 +55,7 @@ class CallbackRefs extends React.Component {
                 ref={(currentElement: Input) => {
                   this.inputElement = currentElement
                 }}
+                onChange={this.onChange}
               />
             </Col>
             <Col span={5} style={paddingLeft_5}>
@@ -49,6 +64,10 @@ class CallbackRefs extends React.Component {
               </Button>
             </Col>
           </Row>
+        </div>
+
+        <div>
+          {this.state.dirty ? <Alert message="输入值已经更新" type="info" closable onClose={this.onClose} /> : null}
         </div>
 
         <Divider type="horizontal"></Divider>
