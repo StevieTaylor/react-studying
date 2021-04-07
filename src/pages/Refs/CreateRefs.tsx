@@ -2,7 +2,7 @@
  * @Author: Stevie
  * @Date: 2021-04-02 00:39:46
  * @LastEditors: Stevie
- * @LastEditTime: 2021-04-08 01:30:52
+ * @LastEditTime: 2021-04-08 01:44:19
  * @Description: file content
  */
 import React from 'react';
@@ -34,7 +34,7 @@ class CreateRefs extends React.Component {
     render() {
         return (
             <div>
-                <h2>三、createRefs</h2>
+                <h2>三、React.createRef() 创建 Refs</h2>
                 <Row>
                     <Col span={19}>
                         <Input placeholder="请输入内容" ref={this.inputRef} />
