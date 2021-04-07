@@ -2,8 +2,8 @@
  * @Author: Stevie
  * @Date: 2021-04-02 00:24:45
  * @LastEditors: Stevie
- * @LastEditTime: 2021-04-07 00:56:34
- * @Description: file content
+ * @LastEditTime: 2021-04-08 01:36:49
+ * @Description: 回调形式的refs
  */
 import React from 'react'
 import { Alert, Button, Col, Divider, Input, message, Row } from 'antd'
@@ -40,25 +40,20 @@ class CallbackRefs extends React.Component {
   }
 
   render() {
-    const inputStyle = { minWidth: 400, maxWidth: 600 }
-    const paddingLeft_5 = { paddingLeft: 5 }
     return (
       <div>
         <h2>二、回调 Refs</h2>
-        <div style={inputStyle}>
+        <div>
           <h3>1. 内联函数定义 ref 回调</h3>
           <Row>
             <Col span={19}>
-              <Input
-                maxLength={400}
-                placeholder="请输入内容"
+              <Input maxLength={400} placeholder="请输入内容" onChange={this.onChange}
                 ref={(currentElement: Input) => {
                   this.inputElement = currentElement
                 }}
-                onChange={this.onChange}
               />
             </Col>
-            <Col span={5} style={paddingLeft_5}>
+            <Col span={5} className="paddingLeft5">
               <Button type="primary" onClick={this.showValue}>
                 显示
               </Button>
@@ -72,13 +67,13 @@ class CallbackRefs extends React.Component {
 
         <Divider type="horizontal"></Divider>
 
-        <div style={inputStyle}>
+        <div>
           <h3>2. class绑定函数定义 ref 回调</h3>
           <Row>
             <Col span={19}>
               <Input placeholder="请输入内容" ref={this.refCallback} />
             </Col>
-            <Col span={5} style={paddingLeft_5}>
+            <Col span={5} className="paddingLeft5">
               <Button type="primary" onClick={this.showValue2}>
                 显示
           </Button>
