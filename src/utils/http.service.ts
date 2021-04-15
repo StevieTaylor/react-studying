@@ -2,10 +2,11 @@
  * @Author: Stevie
  * @Date: 2021-03-28 17:15:01
  * @LastEditors: Stevie
- * @LastEditTime: 2021-03-28 18:27:17
+ * @LastEditTime: 2021-04-05 01:20:11
  * @Description: file content
  */
 import axios, { Method } from 'axios'
+import { message } from 'antd';
 axios.defaults.timeout = 3000;
 
 const CODEMESSAGE = {
@@ -66,6 +67,12 @@ export function post(url: string, params: object, data: object): Promise<any> {
         params
     }
     return axios.post(url, data, config)
+}
+
+export function parseError(error) {
+    if (CODEMESSAGE[error.errorCode]) {
+        message.error(CODEMESSAGE[error.errorCode])
+    }
 }
 
 
