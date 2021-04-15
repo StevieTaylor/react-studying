@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-03-31 06:09:57
+ * @LastEditTime: 2021-04-15 23:46:22
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -11,8 +11,9 @@ import Home from '../pages/home';
 import JSX from '../pages/JSX';
 import Components from '../pages/components';
 import State from '../pages/State';
-import Props from '../pages/Props'
-import Refs from '../pages/Refs'
+import Props from '../pages/Props';
+import Refs from '../pages/Refs';
+import Lifecycle from '../pages/Lifecycle';
 
 export interface IRouterProps {
     path: string;
@@ -66,6 +67,13 @@ export const ROUTES: IRouterProps[] = [
         icon: 'wode',
         name: 'Refs'
     },
+    {
+        path: '/lifecycle',
+        exact: true,
+        component: Lifecycle,
+        icon: 'shijian',
+        name: 'lifecycle'
+    }
 ]
 
 
