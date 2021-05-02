@@ -2,7 +2,7 @@
  * @Author: Stevie
  * @Date: 2021-03-17 22:29:37
  * @LastEditors: Stevie
- * @LastEditTime: 2021-05-03 00:09:50
+ * @LastEditTime: 2021-05-03 00:24:04
  * @Description: file content
  */
 import React, { Component } from 'react'
@@ -35,15 +35,7 @@ class PageLayout extends Component<any, any> {
 
   handleRoutes = ({ children, path, component }: IRouterProps) => {
     if (Array.isArray(children) && children.length) {
-      children.map((route) => {
-        return (
-          <Route
-            key={`${route.path}`}
-            path={`${route.path}`}
-            component={route.component}
-          />
-        )
-      })
+      return children.map(this.handleRoutes);
     } else {
       return (
         <Route
