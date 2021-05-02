@@ -2,27 +2,20 @@
  * @Author: Stevie
  * @Date: 2021-03-17 22:29:37
  * @LastEditors: Stevie
- * @LastEditTime: 2021-03-20 22:48:44
+ * @LastEditTime: 2021-05-03 00:09:50
  * @Description: file content
  */
 import React, { Component } from 'react'
-import { Layout, Menu } from 'antd'
-import { createFromIconfontCN } from '@ant-design/icons';
+import { Layout } from 'antd'
 import {
   MenuUnfoldOutlined,
-  MenuFoldOutlined,
+  MenuFoldOutlined
 } from '@ant-design/icons'
 import './index.less'
-import { Route, withRouter } from 'react-router-dom'
+import { Route, withRouter, Link } from 'react-router-dom'
 import { IRouterProps, ROUTES } from '../router/config'
-
+import Menus from './Menu';
 const { Header, Sider, Content } = Layout
-const IconFont = createFromIconfontCN({
-  scriptUrl: [
-    '//at.alicdn.com/t/font_2433703_oi6fcx7574e.js',
-    '//at.alicdn.com/t/font_2433942_z9n7zdrblm9.js'
-  ]
-});
 
 class PageLayout extends Component<any, any> {
   state = {
@@ -40,25 +33,39 @@ class PageLayout extends Component<any, any> {
     })
   }
 
+  handleRoutes = ({ children, path, component }: IRouterProps) => {
+    if (Array.isArray(children) && children.length) {
+      children.map((route) => {
+        return (
+          <Route
+            key={`${route.path}`}
+            path={`${route.path}`}
+            component={route.component}
+          />
+        )
+      })
+    } else {
+      return (
+        <Route
+          key={`${path}`}
+          path={path}
+          component={component}
+        />
+      )
+    }
+  }
+
   render() {
     return (
       <Layout>
-        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            {
-              ROUTES.map((item) => {
-                return (
-                  <Menu.Item key={item.path} onClick={this.direct}>
-                    <IconFont type={`icon-${item.icon}`} />{item.name}
-                  </Menu.Item>
-                )
-              })
-            }
-          </Menu>
+        <Sider trigger={null} collapsible collapsed={this.state.collapsed} theme="light">
+          <div className="sider-logo">
+            <Link to='/home'>React学习指南</Link>
+          </div>
+          <Menus />
         </Sider>
         <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }}>
+          <Header className="site-layout-header" style={{ padding: 0 }}>
             {React.createElement(
               this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
               {
@@ -76,11 +83,7 @@ class PageLayout extends Component<any, any> {
             }}
           >
             {
-              ROUTES.map((item: IRouterProps) => {
-                return (
-                  <Route key={item.path} path={item.path} component={item.component} ></Route>
-                )
-              })
+              ROUTES.map(this.handleRoutes)
             }
           </Content>
         </Layout>

@@ -1,4 +1,5 @@
 .trigger {
+  color: #fff;
   padding: 0 24px;
   font-size: 18px;
   line-height: 64px;
@@ -10,14 +11,27 @@
   color: #1890ff;
 }
 
-.logo {
-  height: 32px;
-  margin: 16px;
-  background: rgba(255, 255, 255, 0.3);
+.sider-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  background: #1166b0;
+  color: #fff;
+  font-size: 17px;
+  text-align: center;
+  cursor: pointer;
+  a {
+    color: inherit;
+  }
 }
 
-.site-layout .site-layout-background {
+.site-layout {
   background: #fff;
+  .site-layout-header {
+    background: #1166b0;
+    color: #fff;
+  }
 }
 
 .ant-layout {

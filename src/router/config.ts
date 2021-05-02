@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-04-15 23:46:22
+ * @LastEditTime: 2021-05-03 00:11:02
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -13,15 +13,18 @@ import Components from '../pages/components';
 import State from '../pages/State';
 import Props from '../pages/Props';
 import Refs from '../pages/Refs';
-import Lifecycle from '../pages/Lifecycle';
+import OldLifecycle from '@/pages/Lifecycle/OldLifecycle';
+import NewLifecycle from '@/pages/Lifecycle/NewLifecycle';
+import ReduxDemo from "@/pages/Redux";
 
 export interface IRouterProps {
     path: string;
     exact: boolean;
-    component: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
-    icon: string;
+    title: string;
+    component?: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
+    icon?: string;
     name?: string;
-    chilren?: IRouterProps[];
+    children?: IRouterProps[];
 }
 
 export const ROUTES: IRouterProps[] = [
@@ -30,49 +33,69 @@ export const ROUTES: IRouterProps[] = [
         exact: true,
         component: Home,
         icon: 'zhuye',
-        name: "Home"
+        title: "Home"
     },
     {
         path: "/jsx",
         exact: true,
         component: JSX,
         icon: 'duihua',
-        name: 'JSX'
+        title: 'JSX'
     },
     {
         path: '/component',
         exact: true,
         component: Components,
         icon: 'buju',
-        name: 'Component'
+        title: 'Component'
     },
     {
         path: '/state',
         exact: true,
         component: State,
         icon: 'zhinan',
-        name: 'State'
+        title: 'State'
     },
     {
         path: '/props',
         exact: true,
         component: Props,
         icon: 'xiaoxi',
-        name: 'Props'
+        title: 'Props'
     },
     {
         path: '/refs',
         exact: true,
         component: Refs,
         icon: 'wode',
-        name: 'Refs'
+        title: 'Refs'
     },
     {
         path: '/lifecycle',
         exact: true,
-        component: Lifecycle,
         icon: 'shijian',
-        name: 'lifecycle'
+        title: 'lifecycle',
+        children: [
+            {
+                path: '/old-lifecycle',
+                exact: true,
+                component: OldLifecycle,
+                title: 'old edition'
+            },
+            {
+                path: '/new-lifecycle',
+                exact: true,
+                component: NewLifecycle,
+                title: 'new edition'
+            }
+        ]
+    },
+    {
+        path: '/redux-demo',
+        exact: true,
+        component: ReduxDemo,
+        icon: 'shijian',
+        title: 'redux-demo'
     }
 ]
 
