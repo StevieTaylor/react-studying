@@ -2,7 +2,7 @@
  * @Author: Stevie
  * @Date: 2021-04-15 23:19:30
  * @LastEditors: Stevie
- * @LastEditTime: 2021-04-18 21:28:57
+ * @LastEditTime: 2021-05-03 17:48:16
  * @Description: file content
  */
 import React from 'react';
@@ -13,13 +13,9 @@ const { TabPane } = Tabs;
 
 class ComponentLifeCycle extends React.Component {
 
-  onTabChange = (key: string) => {
-    console.log('key :>> ', key);
-  }
-
   render() {
     return (
-      <Tabs type="card" onChange={this.onTabChange}>
+      <Tabs type="card">
         <TabPane tab="旧版生命周期" key="oldLifecycle">
           <OldLifecycle />
         </TabPane>
