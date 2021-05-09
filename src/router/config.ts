@@ -1,13 +1,13 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-05-03 00:11:02
+ * @LastEditTime: 2021-05-09 17:07:46
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
  */
 import { RouteComponentProps } from "react-router-dom";
-import Home from '../pages/home';
+import Home from '../pages/Home';
 import JSX from '../pages/JSX';
 import Components from '../pages/components';
 import State from '../pages/State';
@@ -74,19 +74,19 @@ export const ROUTES: IRouterProps[] = [
         path: '/lifecycle',
         exact: true,
         icon: 'shijian',
-        title: 'lifecycle',
+        title: 'Lifecycle',
         children: [
             {
                 path: '/old-lifecycle',
                 exact: true,
                 component: OldLifecycle,
-                title: 'old edition'
+                title: 'Old Edition'
             },
             {
                 path: '/new-lifecycle',
                 exact: true,
                 component: NewLifecycle,
-                title: 'new edition'
+                title: 'New Edition'
             }
         ]
     },
@@ -95,7 +95,7 @@ export const ROUTES: IRouterProps[] = [
         exact: true,
         component: ReduxDemo,
         icon: 'shijian',
-        title: 'redux-demo'
+        title: 'Redux'
     }
 ]
 
