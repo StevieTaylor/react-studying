@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-05-09 17:07:46
+ * @LastEditTime: 2021-05-09 18:13:07
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -16,6 +16,7 @@ import Refs from '../pages/Refs';
 import OldLifecycle from '@/pages/Lifecycle/OldLifecycle';
 import NewLifecycle from '@/pages/Lifecycle/NewLifecycle';
 import ReduxDemo from "@/pages/Redux";
+import HandlingEvents from "@/pages/HandlingEvents";
 
 export interface IRouterProps {
     path: string;
@@ -53,7 +54,7 @@ export const ROUTES: IRouterProps[] = [
         path: '/state',
         exact: true,
         component: State,
-        icon: 'zhinan',
+        icon: 'kuaijian',
         title: 'State'
     },
     {
@@ -69,6 +70,13 @@ export const ROUTES: IRouterProps[] = [
         component: Refs,
         icon: 'wode',
         title: 'Refs'
+    },
+    {
+        path: '/handling-events',
+        exact: true,
+        component: HandlingEvents,
+        icon: 'zhinan',
+        title: 'Handling Events'
     },
     {
         path: '/lifecycle',
@@ -94,7 +102,7 @@ export const ROUTES: IRouterProps[] = [
         path: '/redux-demo',
         exact: true,
         component: ReduxDemo,
-        icon: 'shijian',
+        icon: 'tupian',
         title: 'Redux'
     }
 ]
