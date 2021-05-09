@@ -2,7 +2,7 @@
  * @Author: Stevie
  * @Date: 2021-03-17 22:29:37
  * @LastEditors: Stevie
- * @LastEditTime: 2021-05-03 00:24:04
+ * @LastEditTime: 2021-05-09 17:52:12
  * @Description: file content
  */
 import React, { Component } from 'react'
@@ -52,12 +52,12 @@ class PageLayout extends Component<any, any> {
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed} theme="light">
           <div className="sider-logo">
-            <Link to='/home'>React学习指南</Link>
+            <Link to='/home'>React 学习指北</Link>
           </div>
           <Menus />
         </Sider>
-        <Layout className="site-layout">
-          <Header className="site-layout-header" style={{ padding: 0 }}>
+        <Layout className="layout">
+          <Header className="layout-header" style={{ padding: 0 }}>
             {React.createElement(
               this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
               {
@@ -66,14 +66,7 @@ class PageLayout extends Component<any, any> {
               },
             )}
           </Header>
-          <Content
-            className="site-layout-background"
-            style={{
-              margin: '24px 16px',
-              padding: 24,
-              minHeight: 280,
-            }}
-          >
+          <Content className="layout-content">
             {
               ROUTES.map(this.handleRoutes)
             }

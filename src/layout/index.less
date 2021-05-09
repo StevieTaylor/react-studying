@@ -1,16 +1,3 @@
-.trigger {
-  color: #fff;
-  padding: 0 24px;
-  font-size: 18px;
-  line-height: 64px;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.trigger:hover {
-  color: #1890ff;
-}
-
 .sider-logo {
   display: flex;
   align-items: center;
@@ -26,18 +13,31 @@
   }
 }
 
-.site-layout {
+.layout {
+  height: 100vh;
   background: #fff;
-  .site-layout-header {
+  .layout-header {
     background: #1166b0;
     color: #fff;
   }
+
+  .layout-content {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    overflow: auto;
+  }
 }
 
-.ant-layout {
-  height: 100vh;
+.trigger {
+  color: #fff;
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
-.ant-layout-content {
-  overflow: scroll;
+.trigger:hover {
+  color: #1890ff;
 }
