@@ -1,6 +1,9 @@
 {
     "proseWrap": "never",
     "singleQuote": true,
-    "trailingComma": "all",
-    "semi": false
+    "jsxSingleQuote": true,
+    "trailingComma": "es5",
+    "semi": false,
+    "tabWidth": 2,
+    "printWidth": 100
 }
