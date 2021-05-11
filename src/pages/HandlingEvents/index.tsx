@@ -1,12 +1,12 @@
 /*
  * @Author: Stevie
  * @Date: 2021-05-09 18:07:56
- * @LastEditTime: 2021-05-10 00:05:23
+ * @LastEditTime: 2021-05-11 14:16:08
  * @LastEditors: Stevie
  * @Description: 事件处理
  */
-import React, { BaseSyntheticEvent } from 'react'
-import { Button, Divider, message, Row, Space, Table, Typography } from 'antd'
+import React, { BaseSyntheticEvent, SyntheticEvent } from 'react'
+import { Button, Divider, message, Space, Table, Typography } from 'antd'
 import { ColumnsType } from 'antd/lib/table'
 import { getType } from '../../utils/util.service'
 import './style.less'
@@ -42,17 +42,53 @@ class HandlingEvents extends React.Component {
         <Paragraph editable={{ tooltip: this.tooltip }}>
           3. event.nativeEvent是原生事件对象
         </Paragraph>
-        <a href="http://192.168.1.5:3000/home">回到首页</a>
-        <Divider type="vertical"></Divider>
-        <a href="http://192.168.1.5:3000/home" onClick={this.preventDefault}>
+        <a href='http://192.168.1.5:3000/home'>回到首页</a>
+        <Divider type='vertical'></Divider>
+        <a href='http://192.168.1.5:3000/home' onClick={this.preventDefault}>
           阻止a标签默认行为
         </a>
-        <Divider type="vertical"></Divider>
-        <a href="http://192.168.1.5:3000/home" onClick={this.getNativeEvent}>
+        <Divider type='vertical'></Divider>
+        <a href='http://192.168.1.5:3000/home' onClick={this.getNativeEvent}>
           原生事件对象
         </a>
       </div>
     )
+  }
+
+  /**
+   * @description: 合成事件target
+   * @param {SyntheticEvent} e
+   * @return {*}
+   */
+  getSyntheticEventTarget = (e: SyntheticEvent): void => {
+    console.log('SyntheticEvent.target :>> ', e.target)
+  }
+
+  /**
+   * @description: 合成事件currentTarget
+   * @param {SyntheticEvent} e
+   * @return {*}
+   */
+  getSyntheticEventCurrentTarget = (e: SyntheticEvent): void => {
+    console.log('SyntheticEvent.currentTarget :>> ', e.currentTarget)
+  }
+
+  /**
+   * @description: 原生事件target
+   * @param {SyntheticEvent} e
+   * @return {*}
+   */
+  getNativeEventTarget = (e: SyntheticEvent): void => {
+    console.log('nativeEvent.target :>> ', e.nativeEvent.target)
+  }
+
+  /**
+   * @description: 原生事件currentTarget
+   * @param {SyntheticEvent} e
+   * @return {*}
+   */
+  getNativeEventCurrentTarget = (e: SyntheticEvent): void => {
+    console.log('nativeEvent.currentTarget :>> ', e.nativeEvent.currentTarget)
   }
 
   getParentTarget = (e) => {
@@ -73,27 +109,47 @@ class HandlingEvents extends React.Component {
 
   renderTargetAndCurrentTarget() {
     return (
-      <div>
+      <div onClick={this.getSyntheticEventTarget} className="target-container">
         <h2>二、target和currentTarget的区别</h2>
-        <Paragraph>
-          1. 在SyntheticEvent中:
-          <span className="target">target</span>
-          指向了触发事件的原始元素,
-          <span className="currentTarget">currentTarget</span>
-          指向了
+        <Paragraph className="aaaa">
+          1. 在 SyntheticEvent 合成事件中:
+          <ul>
+            <li>
+              <span className='target' onClick={this.getSyntheticEventTarget}>
+                target
+              </span>
+              指向了触发事件的原始元素
+            </li>
+            <li>
+              <span className='currentTarget' onClick={this.getSyntheticEventCurrentTarget}>
+                currentTarget
+              </span>
+              指向了
+            </li>
+          </ul>
         </Paragraph>
         <Paragraph>
-          2. 在nativeEvent中:
-          <span className="target">target</span>
-          指向了触发事件的原始元素,
-          <span className="currentTarget">currentTarget</span>
-          可能是触发事件的父元素
+          2. 在 nativeEvent 原生事件中:
+          <ul>
+            <li>
+              <span className='target' onClick={this.getNativeEventTarget}>
+                target
+              </span>
+              指向了触发事件的原始元素
+            </li>
+            <li>
+              <span className='currentTarget' onClick={this.getNativeEventCurrentTarget}>
+                currentTarget
+              </span>
+              可能是触发事件的父元素
+            </li>
+          </ul>
         </Paragraph>
-        <div onClick={this.getParentTarget} className="parentElement">
-          <span>点击父元素空白区域</span>
-          <Row>
-            <button onClick={this.getChildTarget}>点击子元素触发冒泡</button>
-          </Row>
+        <div onClick={this.getParentTarget} className='parentElement'>
+          点击父元素空白区域
+          <button onClick={this.getChildTarget} className='childElement'>
+            点击子元素触发冒泡
+          </button>
         </div>
       </div>
     )
@@ -133,21 +189,16 @@ class HandlingEvents extends React.Component {
   renderActions = (value: any, record: any, index: number): React.ReactNode => {
     return (
       <Space>
-        <Button type="link" onClick={this.directBinding}>
+        <Button type='link' onClick={this.directBinding}>
           直接绑定
         </Button>
         <Button
-          type="link"
-          onClick={(e: BaseSyntheticEvent) =>
-            this.explicitTransfer(record.id, e)
-          }
+          type='link'
+          onClick={(e: BaseSyntheticEvent) => this.explicitTransfer(record.id, e)}
         >
           显式传递
         </Button>
-        <Button
-          type="link"
-          onClick={this.implicitTransfer.bind(this, record.id)}
-        >
+        <Button type='link' onClick={this.implicitTransfer.bind(this, record.id)}>
           隐式传递
         </Button>
       </Space>
@@ -164,8 +215,7 @@ class HandlingEvents extends React.Component {
         align: 'center',
         title: 'Actions',
         key: 'actions',
-        render: (value, record, index) =>
-          this.renderActions(value, record, index),
+        render: (value, record, index) => this.renderActions(value, record, index),
       },
     ]
     const dataSource = [
@@ -198,9 +248,9 @@ class HandlingEvents extends React.Component {
     return (
       <div>
         {this.renderSyntheticEvent()}
-        <Divider type="horizontal"></Divider>
+        <Divider type='horizontal'></Divider>
         {this.renderTargetAndCurrentTarget()}
-        <Divider type="horizontal"></Divider>
+        <Divider type='horizontal'></Divider>
         {this.renderPassParameter()}
       </div>
     )
