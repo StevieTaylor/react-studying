@@ -1,0 +1,50 @@
+.form {
+  margin-top: 30px;
+
+  .form-item {
+    height: 56px;
+  }
+
+  .form-item > label {
+    display: inline-block;
+    margin-right: 5px;
+    width: 80px;
+    text-align: right;
+    font-size: 14px;
+  }
+
+  .required::before {
+    color: #ff4d4f;
+    content: '*';
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1;
+    margin-right: 4px;
+  }
+
+  .form-item > input {
+    height: 32px;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    width: 300px;
+    overflow: visible;
+    font-size: 14px;
+  }
+
+  .primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 64px;
+    width: 70px;
+    line-height: 1.75;
+    height: 32px;
+    color: #fff;
+    background-color: #1976d2;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}

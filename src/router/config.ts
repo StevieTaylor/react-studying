@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-05-09 18:13:07
+ * @LastEditTime: 2021-05-13 16:57:03
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -17,6 +17,7 @@ import OldLifecycle from '@/pages/Lifecycle/OldLifecycle';
 import NewLifecycle from '@/pages/Lifecycle/NewLifecycle';
 import ReduxDemo from "@/pages/Redux";
 import HandlingEvents from "@/pages/HandlingEvents";
+import Forms from "@/pages/Forms";
 
 export interface IRouterProps {
     path: string;
@@ -77,6 +78,13 @@ export const ROUTES: IRouterProps[] = [
         component: HandlingEvents,
         icon: 'zhinan',
         title: 'Handling Events'
+    },
+    {
+        path: '/forms',
+        exact: true,
+        component: Forms,
+        icon: 'caidan',
+        title: 'Forms'
     },
     {
         path: '/lifecycle',
