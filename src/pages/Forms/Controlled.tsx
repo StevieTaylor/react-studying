@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-05-12 23:13:15
- * @LastEditTime: 2021-05-13 18:18:33
+ * @LastEditTime: 2021-05-15 23:49:56
  * @LastEditors: Stevie
  * @Description: 受控组件
  */
@@ -53,7 +53,7 @@ class ControlledComponents extends React.Component {
           </div>
           <div className="form-item">
             <label></label>
-            <button className="primary" onClick={this.login}>登陆</button>
+            <button className="primary-button" onClick={this.login}>登陆</button>
           </div>
         </form>
       </div>
