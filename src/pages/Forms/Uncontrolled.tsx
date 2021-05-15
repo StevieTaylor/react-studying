@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-05-13 16:47:31
- * @LastEditTime: 2021-05-13 17:50:44
+ * @LastEditTime: 2021-05-15 23:50:24
  * @LastEditors: Stevie
  * @Description: 非受控组件
  */
@@ -25,16 +25,16 @@ class UncontrolledComponents extends React.Component {
         <h2>非受控组件</h2>
         <form onSubmit={e => this.submitForm(e)} action="https://www.baidu.com" className="form">
           <div className="form-item">
-            <label>用户名:</label>
+            <label className="required">用户名:</label>
             <input type="text" ref={this.usernameRef} name="username" />
           </div>
           <div className="form-item">
-            <label>密码:</label>
+            <label className="required">密码:</label>
             <input type="password" ref={this.passwordRef} name="password" />
           </div>
           <div className="form-item">
             <label></label>
-            <button className="primary">登陆</button>
+            <button className="primary-button">登陆</button>
           </div>
         </form>
       </div>
