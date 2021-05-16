@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-05-13 16:57:03
+ * @LastEditTime: 2021-05-16 16:31:04
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -18,6 +18,7 @@ import NewLifecycle from '@/pages/Lifecycle/NewLifecycle';
 import ReduxDemo from "@/pages/Redux";
 import HandlingEvents from "@/pages/HandlingEvents";
 import Forms from "@/pages/Forms";
+import HighOrderFunction from "@/pages/HighOrderFunction";
 
 export interface IRouterProps {
     path: string;
@@ -85,6 +86,13 @@ export const ROUTES: IRouterProps[] = [
         component: Forms,
         icon: 'caidan',
         title: 'Forms'
+    },
+    {
+        path: '/high-order-function',
+        exact: true,
+        component: HighOrderFunction,
+        icon: 'shezhi',
+        title: 'HighOrderFunction'
     },
     {
         path: '/lifecycle',
