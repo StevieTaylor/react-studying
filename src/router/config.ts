@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-05-16 16:31:04
+ * @LastEditTime: 2021-05-16 20:19:40
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -9,7 +9,7 @@
 import { RouteComponentProps } from "react-router-dom";
 import Home from '../pages/Home';
 import JSX from '../pages/JSX';
-import Components from '../pages/components';
+import Components from '../pages/Components';
 import State from '../pages/State';
 import Props from '../pages/Props';
 import Refs from '../pages/Refs';
