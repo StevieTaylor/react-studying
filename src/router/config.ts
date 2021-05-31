@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-05-21 20:31:22
+ * @LastEditTime: 2021-05-31 21:58:00
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -19,6 +19,7 @@ import ReduxDemo from "@/pages/Redux";
 import HandlingEvents from "@/pages/HandlingEvents";
 import Forms from "@/pages/Forms";
 import HighOrderFunction from "@/pages/HighOrderFunction";
+import DiffingAlgorithm from "@/pages/DiffingAlgorithm";
 
 export interface IRouterProps {
     path: string;
@@ -113,6 +114,13 @@ export const ROUTES: IRouterProps[] = [
                 title: 'New Edition'
             }
         ]
+    },
+    {
+        path: '/diffing-algorithm',
+        exact: true,
+        component: DiffingAlgorithm,
+        icon: 'gouwu',
+        title: 'Diffing Algorithm'
     },
     {
         path: '/redux-demo',
