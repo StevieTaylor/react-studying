@@ -2,8 +2,12 @@
     "proseWrap": "never",
     "singleQuote": true,
     "jsxSingleQuote": true,
-    "trailingComma": "es5",
-    "semi": false,
+    "trailingComma": "none",
+    "semi": true,
+		"useTabs": true,
     "tabWidth": 2,
-    "printWidth": 100
+    "printWidth": 100,
+		"bracketSpacing":true,
+		"jsxBracketSameLine": false,
+		"arrowParens": "always"
 }
