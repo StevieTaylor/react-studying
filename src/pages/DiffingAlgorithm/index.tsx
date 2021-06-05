@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-05-16 20:20:21
- * @LastEditTime: 2021-06-03 18:38:27
+ * @LastEditTime: 2021-06-05 16:28:11
  * @LastEditors: Stevie
  * @Description: diffing 算法
  */
@@ -58,15 +58,15 @@ class DiffingAlgorithm extends React.Component<any, IState> {
     this.setState({ personList });
   };
 
-  handleNameChange = (e: React.FormEvent<HTMLInputElement>) => {
+  handleNameChange = (e: React.FormEvent<HTMLInputElement>): void => {
     this.setState({ name: e.currentTarget.value });
   };
 
-  handleAgeChange = (e: React.FormEvent<HTMLInputElement>) => {
+  handleAgeChange = (e: React.FormEvent<HTMLInputElement>): void => {
     this.setState({ age: +e.currentTarget.value });
   };
 
-  renderVerification = () => {
+  renderVerification = (): React.ReactNode => {
     return (
       <div>
         <h2>一、验证diffing算法</h2>
@@ -95,7 +95,7 @@ class DiffingAlgorithm extends React.Component<any, IState> {
     );
   };
 
-  getNewPerson = () => {
+  getNewPerson = (): IPerson => {
     const { personList, name, age } = this.state;
     return {
       id: personList.length + 1,
@@ -116,7 +116,7 @@ class DiffingAlgorithm extends React.Component<any, IState> {
     this.setState({ personList: [this.getNewPerson(), ...personList] });
   };
 
-  renderEffectOfKey = () => {
+  renderEffectOfKey = (): React.ReactNode => {
     const { personList } = this.state;
     return (
       <div>
@@ -147,7 +147,7 @@ class DiffingAlgorithm extends React.Component<any, IState> {
     );
   };
 
-  render() {
+  render(): JSX.Element {
     return (
       <div className='diffing-algorithm'>
         {this.renderVerification()}
