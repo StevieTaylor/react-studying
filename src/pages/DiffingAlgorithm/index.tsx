@@ -1,12 +1,12 @@
 /*
  * @Author: Stevie
  * @Date: 2021-05-16 20:20:21
- * @LastEditTime: 2021-06-05 16:28:11
+ * @LastEditTime: 2021-06-05 17:45:34
  * @LastEditors: Stevie
  * @Description: diffing 算法
  */
 import * as React from 'react';
-import { Button, Divider } from 'antd';
+import { Divider } from 'antd';
 import './style.less';
 
 interface IPerson {
@@ -28,7 +28,7 @@ class DiffingAlgorithm extends React.Component<any, IState> {
 
   state = {
     date: new Date(),
-    number: 9,
+    number: 3,
     personList: [],
     name: '',
     age: 0
@@ -74,22 +74,30 @@ class DiffingAlgorithm extends React.Component<any, IState> {
           <div style={{ height: 40, paddingLeft: 20 }}>
             当前时间: {this.state.date.toTimeString()}
           </div>
-          <div className='form-item'>
-            <label className='required'>姓名:</label>
-            <input type='text' placeholder='请输入你的姓名' onChange={this.handleNameChange} />
+          <div className="form-item">
+            <label className="required">姓名:</label>
+            <input type="text" placeholder="请输入你的姓名" onChange={this.handleNameChange} />
           </div>
         </div>
         <div>
-          <div className='form-item'>
-            <label className='required'>年龄:</label>
-            <input type='text' placeholder='请输入你的年龄' onChange={this.handleAgeChange} />
+          <div className="form-item">
+            <label className="required">年龄:</label>
+            <input type="text" placeholder="请输入你的年龄" onChange={this.handleAgeChange} />
           </div>
-          <Button type='primary' onClick={this.reverseAdd} style={{ marginLeft: 85 }}>
+          <button
+            className="primary-button"
+            style={{ marginLeft: 85, width: 90 }}
+            onClick={this.reverseAdd}
+          >
             逆序新增
-          </Button>
-          <Button type='primary' onClick={this.orderAdd} style={{ marginLeft: 8 }}>
+          </button>
+          <button
+            className="primary-button"
+            style={{ marginLeft: 8, width: 90 }}
+            onClick={this.orderAdd}
+          >
             顺序新增
-          </Button>
+          </button>
         </div>
       </div>
     );
@@ -121,8 +129,8 @@ class DiffingAlgorithm extends React.Component<any, IState> {
     return (
       <div>
         <h2>二、Key的作用</h2>
-        <div className='person-list-container'>
-          <div className='useIndex'>
+        <div className="person-list-container">
+          <div className="useIndex">
             <h3>1.使用index作为key</h3>
             <ul>
               {personList.map((person: IPerson, index: number) => (
@@ -132,12 +140,37 @@ class DiffingAlgorithm extends React.Component<any, IState> {
               ))}
             </ul>
           </div>
-          <div className='useId'>
+
+          <div className="useId">
             <h3>2.使用id作为key</h3>
             <ul>
               {personList.map((person: IPerson) => (
                 <li key={person.id}>
                   <span>姓名:{person.name}</span>,<span>年龄:{person.age}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="useIndex">
+            <h3>3.使用index作为key, 并带有输入型DOM</h3>
+            <ul>
+              {personList.map((person: IPerson, index: number) => (
+                <li key={index}>
+                  <span>姓名:{person.name}</span>,<span>年龄:{person.age}</span>
+                  <input className="input" />
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="useId">
+            <h3>4.使用id作为key, 并带有输入型DOM</h3>
+            <ul>
+              {personList.map((person: IPerson) => (
+                <li key={person.id}>
+                  <span>姓名:{person.name}</span>,<span>年龄:{person.age}</span>
+                  <input className="input" />
                 </li>
               ))}
             </ul>
@@ -149,9 +182,9 @@ class DiffingAlgorithm extends React.Component<any, IState> {
 
   render(): JSX.Element {
     return (
-      <div className='diffing-algorithm'>
+      <div className="diffing-algorithm">
         {this.renderVerification()}
-        <Divider type='horizontal'></Divider>
+        <Divider type="horizontal"></Divider>
         {this.renderEffectOfKey()}
       </div>
     );
