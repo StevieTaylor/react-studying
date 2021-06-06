@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-06-05 23:43:26
- * @LastEditTime: 2021-06-06 17:08:32
+ * @LastEditTime: 2021-06-06 22:37:51
  * @LastEditors: Stevie
  * @Description: 纯React版简易计算器
  */
@@ -62,7 +62,7 @@ class ReactCalculator extends React.Component<any, IReactCalculatorState> {
     });
     return (
       <div>
-        <h3>1. 纯React版</h3>
+        <h3>1. React版</h3>
         <Row className="calculator-result">
           <Col span={2} className="label">
             <span>计算结果:</span>
