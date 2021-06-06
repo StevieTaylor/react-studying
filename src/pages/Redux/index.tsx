@@ -1,13 +1,14 @@
 /*
  * @Author: Stevie
  * @Date: 2021-04-29 17:17:21
- * @LastEditTime: 2021-06-06 17:18:55
+ * @LastEditTime: 2021-06-06 17:28:10
  * @LastEditors: Stevie
  * @Description:
  */
 import * as React from 'react';
-import { Image } from 'antd';
+import { Divider, Image } from 'antd';
 import ReactCalculator from './ReactCalculator';
+import ReduxCalculator from './ReduxCalculator';
 
 class ReduxDemo extends React.Component {
   render() {
@@ -20,6 +21,8 @@ class ReduxDemo extends React.Component {
         />
         <h2>二、Calculator Demo</h2>
         <ReactCalculator />
+        <Divider type="horizontal"></Divider>
+        <ReduxCalculator />
       </div>
     );
   }
