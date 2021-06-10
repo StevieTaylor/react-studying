@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-06-06 17:14:31
- * @LastEditTime: 2021-06-09 00:10:53
+ * @LastEditTime: 2021-06-10 20:17:07
  * @LastEditors: Stevie
  * @Description: Redux版简易计算器
  */
@@ -9,6 +9,7 @@ import * as React from 'react';
 import { Button, Col, message, Row, Select, Space } from 'antd';
 import store from '@/store';
 import actions, { CalculatorAsyncActions } from '@/store/actions/calcalator';
+import { IAction } from '@/entity/common.entity';
 const { Option } = Select;
 
 interface IReduxCalculatorState {
@@ -58,8 +59,8 @@ class ReduxCalculator extends React.Component<any, IReduxCalculatorState> {
   };
 
   resetAfter = (): void => {
-    store.dispatch(CalculatorAsyncActions.resetAfterOneSecond(0, 1000))
-  }
+    store.dispatch((CalculatorAsyncActions.resetAfterOneSecond(0, 1000) as unknown) as IAction);
+  };
 
   handleNumberChange = (number: number): void => {
     this.setState({ number });
