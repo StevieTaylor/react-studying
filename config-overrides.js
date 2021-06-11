@@ -2,7 +2,7 @@
  * @Author: Stevie
  * @Date: 2021-03-01 23:27:48
  * @LastEditors: Stevie
- * @LastEditTime: 2021-03-19 01:09:00
+ * @LastEditTime: 2021-06-11 18:14:08
  * @Description: file content
  */
 const path = require('path');
@@ -58,7 +58,11 @@ module.exports = {
         // - 添加别名
         addWebpackAlias({
             "@": path.resolve(__dirname, "./src"),
-            "@pages": path.resolve(__dirname, "./src/pages")
+            "@pages": path.resolve(__dirname, "./src/pages"),
+            "@entity": path.resolve(__dirname, "./src/entity"),
+            "@images": path.resolve(__dirname, "./src/assets/images"),
+            "@styles": path.resolve(__dirname, "./src/styles"),
+            "@utils": path.resolve(__dirname, "./src/utils")
         })
     ),
     devServer: overrideDevServer(
