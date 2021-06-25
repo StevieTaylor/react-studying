@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-05-31 21:58:00
+ * @LastEditTime: 2021-06-25 10:56:36
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -20,6 +20,7 @@ import HandlingEvents from "@/pages/HandlingEvents";
 import Forms from "@/pages/Forms";
 import HighOrderFunction from "@/pages/HighOrderFunction";
 import DiffingAlgorithm from "@/pages/DiffingAlgorithm";
+import ReactHooks from "@/pages/ReactHooks";
 
 export interface IRouterProps {
     path: string;
@@ -128,6 +129,13 @@ export const ROUTES: IRouterProps[] = [
         component: ReduxDemo,
         icon: 'tupian',
         title: 'Redux'
+    },
+    {
+        path: '/react-hooks',
+        exact: true,
+        icon: 'liebiao',
+        title: 'Hooks',
+        component: ReactHooks
     }
 ]
 
