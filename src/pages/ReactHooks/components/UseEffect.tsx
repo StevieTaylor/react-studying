@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-06-25 10:13:47
- * @LastEditTime: 2021-06-28 00:17:15
+ * @LastEditTime: 2021-06-28 14:20:32
  * @LastEditors: Stevie
  * @Description:
  */
@@ -34,12 +34,22 @@ const UseEffect: React.FC<IProps> = ({ name, age }) => {
   const buttonRef = React.useRef<HTMLButtonElement>(null);
 
   React.useEffect(() => {
+    console.log('执行了useEffect');
+    // 模拟Ajax请求
     getUserInfo({ name, age }).then((res: any) => {
-      console.log('res :>> ', res);
       setUserInfo(res);
     });
-    console.log(buttonRef);
+    // DOM操作
     window.addEventListener('resize', handleResize);
+    // 定时器
+    const $timer = setInterval(() => {
+
+    }, 1000)
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearInterval($timer);
+    }
   }, [name, age, number]);
 
   return (
@@ -54,6 +64,7 @@ const UseEffect: React.FC<IProps> = ({ name, age }) => {
         </p>
       </div>
       <div>
+        <span>number : {number}</span>
         <button className="primary-button" onClick={() => setNumber(number + 1)} ref={buttonRef}>
           +1
         </button>
