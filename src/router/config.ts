@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-06-25 10:56:36
+ * @LastEditTime: 2021-06-28 14:44:31
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -20,7 +20,10 @@ import HandlingEvents from "@/pages/HandlingEvents";
 import Forms from "@/pages/Forms";
 import HighOrderFunction from "@/pages/HighOrderFunction";
 import DiffingAlgorithm from "@/pages/DiffingAlgorithm";
-import ReactHooks from "@/pages/ReactHooks";
+import Hooks from "@/pages/ReactHooks/components/Hooks";
+import UseState from "@/pages/ReactHooks/components/UseState";
+import UseEffect from "@/pages/ReactHooks/components/UseEffect";
+import UseRef from "@/pages/ReactHooks/components/UseRef";
 
 export interface IRouterProps {
     path: string;
@@ -134,8 +137,33 @@ export const ROUTES: IRouterProps[] = [
         path: '/react-hooks',
         exact: true,
         icon: 'liebiao',
-        title: 'Hooks',
-        component: ReactHooks
+        title: 'React Hooks',
+        children: [
+            {
+                path: '/hooks',
+                exact: true,
+                title: 'Hooks',
+                component: Hooks
+            },
+            {
+                path: '/useState',
+                exact: true,
+                title: 'useState',
+                component: UseState
+            },
+            {
+                path: '/useEffect',
+                exact: true,
+                title: 'useEffect',
+                component: UseEffect
+            },
+            {
+                path: '/useRef',
+                exact: true,
+                title: 'useRef',
+                component: UseRef
+            },
+        ]
     }
 ]
 
