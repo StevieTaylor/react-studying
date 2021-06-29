@@ -1,67 +1,85 @@
 /*
  * @Author: Stevie
  * @Date: 2021-06-28 14:26:57
- * @LastEditTime: 2021-06-28 20:58:10
+ * @LastEditTime: 2021-06-29 15:28:49
  * @LastEditors: Stevie
  * @Description:
  */
-import * as React from 'react';
-import { Divider, Typography } from 'antd';
-const { Title } = Typography;
+import * as React from 'react'
+import Section, { ISection } from '@/components/section'
+import { Typography } from 'antd'
+import ThisProblem from './ThisProblem'
+const { Title } = Typography
 
 const WhatIsHooks: React.FC = () => {
-  return (
-    <div>
-      <h2>一、Hooks是什么?</h2>
-      <h4 className="h4-ref">
-        React16.8以后，新增的钩子API，目的是增加代码的可复用性，逻辑性，弥补无状态组件没有生命周期，没有数据管理状态state的缺陷.
-      </h4>
-    </div>
-  );
-};
-
-const DisadvantagesOfClassComponent: React.FC = () => {
-  return (
-    <div>
-      <h2>二、类组件的劣势</h2>
-      <ul>
-        <li>状态逻辑难复用, 需要使用render props 或 HOC</li>
-        <li>趋向复杂难以维护</li>
-        <li>this 指向问题</li>
-      </ul>
-    </div>
-  );
-};
-
-const AdvantagesOfHooks: React.FC = () => {
-  return (
-    <div>
-      <h2>三、Hooks的优势</h2>
-      <ul>
-        <li>优化类组件的3大问题</li>
-        <li></li>
-        <li>可以拆分成更小的组件单元</li>
-        <li>
-          <h4 className="h4-ref">
-            副作用的关注点分离
-          </h4>
-        </li>
-      </ul>
-    </div>
-  );
-};
-
-type TNotesProps = {
-  notes: string[];
+  const hooksIntro: ISection = {
+    title: '一、Hooks是什么?',
+    content: {
+      items: [
+        'React16.8以后，新增的钩子API，目的是增加代码的可复用性，逻辑性，弥补无状态组件没有生命周期，没有数据管理状态state的缺陷.'
+      ]
+    }
+  }
+  return <Section {...hooksIntro} />
 }
 
-const Notes: React.FC<TNotesProps> = (props: TNotesProps) => {
-  console.log(props);
-  return (
-    <div>
-      <span>{props.notes}</span>
-    </div>
-  )
+const DisadvantagesOfClassComponent: React.FC = () => {
+  const disadvantages: ISection = {
+    title: '二、类组件的劣势',
+    content: {
+      items: [
+        '状态逻辑难复用, 需要使用render props 或 HOC',
+        '趋向复杂难以维护',
+        { description: 'this 指向问题', example: <ThisProblem /> }
+      ]
+    }
+  }
+  return <Section {...disadvantages} />
+}
+
+const Effect: React.FC = () => {
+  const effect: ISection = {
+    title: '三、副作用: 指那些没有发生在数据向视图转换过程中的逻辑',
+    content: {
+      items: ['Ajax请求', '访问原生DOM元素', '绑定/解绑事件', '设置定时器', '日志记录', '本地持久化缓存']
+    }
+  }
+  return <Section {...effect} />
+}
+
+const AdvantagesOfHooks: React.FC = () => {
+  const advantages: ISection = {
+    title: '四、Hooks的优势',
+    content: {
+      items: [
+        '能优化类组件的3大问题',
+        '能在无需修改组件结构的情况下复用状态逻辑(自定义hooks)',
+        '能拆分成更小的组件单元',
+        {
+          description: '副作用的关注点分离',
+          example:
+            <ol>
+              <li>useEffect在全部渲染完毕后执行</li>
+              <li>useLayoutEffect会在浏览器layout布局以后,painting绘制以前执行</li>
+            </ol>
+        }
+      ]
+    }
+  }
+  return <Section {...advantages} />
+}
+
+const Notes: React.FC = () => {
+  const notes: ISection = {
+    title: '五、注意事项',
+    content: {
+      items: [
+        '只能在函数内部的顶层调用Hook, 不能在循环、条件判断、子函数中调用',
+        '只能在 React 的函数组件中调用 Hook，不要在其他 JavaScript 函数中调用'
+      ]
+    }
+  }
+  return <Section {...notes} />
 }
 
 const ReactHooks: React.FC = () => {
@@ -69,13 +87,12 @@ const ReactHooks: React.FC = () => {
     <div className="react-hooks">
       <Title level={3}>React Hooks</Title>
       <WhatIsHooks />
-      <Divider type="horizontal"></Divider>
       <DisadvantagesOfClassComponent />
-      <Divider type="horizontal"></Divider>
+      <Effect />
       <AdvantagesOfHooks />
-      <Notes notes={['注意']} />
+      <Notes />
     </div>
-  );
-};
+  )
+}
 
-export default ReactHooks;
+export default ReactHooks
