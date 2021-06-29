@@ -9,8 +9,3 @@ export interface IAction {
   type: string;
   data?: any;
 }
-
-export interface IContent {
-  subtitle?: string;
-  items: any[];
-}
