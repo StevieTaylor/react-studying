@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-06-28 14:44:31
+ * @LastEditTime: 2021-07-01 17:45:56
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -24,6 +24,7 @@ import Hooks from "@/pages/ReactHooks/components/Hooks";
 import UseState from "@/pages/ReactHooks/components/UseState";
 import UseEffect from "@/pages/ReactHooks/components/UseEffect";
 import UseRef from "@/pages/ReactHooks/components/UseRef";
+import UseReducer from "@/pages/ReactHooks/components/UseReducer";
 
 export interface IRouterProps {
     path: string;
@@ -163,6 +164,12 @@ export const ROUTES: IRouterProps[] = [
                 title: 'useRef',
                 component: UseRef
             },
+            {
+                path: '/useReducer',
+                exact: true,
+                title: 'useReducer',
+                component: UseReducer
+            }
         ]
     }
 ]
