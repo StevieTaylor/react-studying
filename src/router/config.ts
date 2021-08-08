@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-07-01 17:45:56
+ * @LastEditTime: 2021-08-08 22:30:10
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -25,6 +25,7 @@ import UseState from "@/pages/ReactHooks/components/UseState";
 import UseEffect from "@/pages/ReactHooks/components/UseEffect";
 import UseRef from "@/pages/ReactHooks/components/UseRef";
 import UseReducer from "@/pages/ReactHooks/components/UseReducer";
+import Network from "@/pages/Network";
 
 export interface IRouterProps {
     path: string;
@@ -171,6 +172,13 @@ export const ROUTES: IRouterProps[] = [
                 component: UseReducer
             }
         ]
+    },
+    {
+        path: '/network',
+        exact: true,
+        component: Network,
+        icon: 'gouwu',
+        title: 'Network'
     }
 ]
 
