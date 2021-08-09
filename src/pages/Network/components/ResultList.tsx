@@ -1,54 +1,43 @@
 /*
  * @Author: Stevie
  * @Date: 2021-08-08 22:40:20
- * @LastEditTime: 2021-08-08 23:28:03
+ * @LastEditTime: 2021-08-09 17:01:31
  * @LastEditors: Stevie
  * @Description:
  */
 import * as React from 'react'
 import { Card } from 'antd'
+import { IGithubUser } from '@/entity/user.entity'
 const { Meta } = Card
-class ResultList extends React.Component {
-  mockUsers = [
-    {
-      alt: 'username',
-      imgSrc: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-      title: 'username',
-      description: 'react'
-    },
-    {
-      alt: 'username',
-      imgSrc: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-      title: 'username',
-      description: 'react'
-    },
-    {
-      alt: 'username',
-      imgSrc: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-      title: 'username',
-      description: 'react'
-    },
-    {
-      alt: 'username',
-      imgSrc: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-      title: 'username',
-      description: 'react'
-    },
-    {
-      alt: 'username',
-      imgSrc: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-      title: 'username',
-      description: 'react'
-    }
-  ]
+
+interface IResultListProps {
+  userList: IGithubUser[]
+}
+
+class ResultList extends React.Component<IResultListProps, any> {
+
+  renderUrl = (url: string) => {
+    return (
+      <a href={url} target="_blank" rel="noreferrer">
+        {url}
+      </a>
+    )
+  }
 
   render() {
     return (
       <div className="result-list">
-        {this.mockUsers.map((user) => {
+        {this.props.userList.map((user) => {
           return (
-            <Card hoverable className="user-card" cover={<img alt={user.alt} src={user.imgSrc} />}>
-              <Meta title={user.title} description={user.description}></Meta>
+            <Card
+              className="user-card"
+              key={user.id}
+              hoverable
+              bordered
+              size="small"
+              cover={<img alt={user.html_url} src={user.avatar_url} />}
+            >
+              <Meta title={user.login} description={this.renderUrl(user.html_url)} className="user-html-url"></Meta>
             </Card>
           )
         })}

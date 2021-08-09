@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-29 15:57:04
- * @LastEditTime: 2021-06-25 18:02:08
+ * @LastEditTime: 2021-08-09 15:34:45
  * @LastEditors: Stevie
  * @Description:
  * @FilePath: /react-learning-demo/src/entity/user.entity.ts
@@ -19,4 +19,11 @@ export interface IUserInfo {
   name: string;
   age: number;
   gender: string;
+}
+
+export interface IGithubUser {
+  id: number;
+  avatar_url: string;
+  login: string;
+  html_url: string;
 }
