@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-08-08 22:40:20
- * @LastEditTime: 2021-08-11 10:40:46
+ * @LastEditTime: 2021-08-11 17:20:04
  * @LastEditors: Stevie
  * @Description:
  */
@@ -16,14 +16,19 @@ interface IResultListState {
 }
 
 class ResultList extends React.Component<any, IResultListState> {
+  userListToken: string = ''
   state = {
     userList: [] as IGithubUser[]
   }
 
   componentDidMount() {
-    Pubsub.subscribe('userList', (_: any, data: any) => {
+    this.userListToken = Pubsub.subscribe('userList', (_: any, data: any) => {
       this.setState({ userList: data })
     })
+  }
+
+  componentWillUnmount() {
+    Pubsub.unsubscribe(this.userListToken)
   }
 
   renderUrl = (url: string) => {
