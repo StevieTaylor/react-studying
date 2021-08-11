@@ -1,39 +1,24 @@
 /*
  * @Author: Stevie
  * @Date: 2021-08-08 22:27:19
- * @LastEditTime: 2021-08-09 15:34:59
+ * @LastEditTime: 2021-08-11 10:54:45
  * @LastEditors: Stevie
  * @Description:
  */
 import './style'
-import * as React from 'react';
-import ResultList from './components/ResultList';
-import SearchInput from './components/SearchInput';
-import { IGithubUser } from '@/entity/user.entity';
+import * as React from 'react'
+import ResultList from './components/ResultList'
+import SearchInput from './components/SearchInput'
 
-interface INetworkState {
-  userList: IGithubUser[];
-}
-
-class Network extends React.Component<any, INetworkState> {
-
-  state = {
-    userList: []
-  }
-
-  getUserList = (userList: IGithubUser[]) => {
-    this.setState({ userList })
-  }
-
+class Network extends React.Component<any, any> {
   render() {
-    const { userList } = this.state;
     return (
       <div className="user-search-container">
-        <SearchInput getUserList={this.getUserList} />
-        <ResultList userList={userList} />
+        <SearchInput />
+        <ResultList />
       </div>
-    );
+    )
   }
 }
 
-export default Network;
+export default Network

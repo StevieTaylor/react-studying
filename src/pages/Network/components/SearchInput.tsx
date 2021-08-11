@@ -1,30 +1,32 @@
 /*
  * @Author: Stevie
  * @Date: 2021-08-08 22:39:45
- * @LastEditTime: 2021-08-09 15:42:15
+ * @LastEditTime: 2021-08-11 10:40:01
  * @LastEditors: Stevie
  * @Description:
  */
-import * as React from 'react';
-import { Input, Row, Col, Button } from 'antd';
-import axios from 'axios';
-import { IGithubUser } from '@/entity/user.entity';
+import * as React from 'react'
+import { Input, Row, Col, Button, message } from 'antd'
+import axios from 'axios'
+import { IGithubUser } from '@/entity/user.entity'
+import Pubsub from 'pubsub-js'
 
-interface ISearchInputProps {
-  getUserList: (list: IGithubUser[]) => void;
-}
-
-class SearchInput extends React.Component<ISearchInputProps, any> {
-
-  inputRef = React.createRef<Input>();
+class SearchInput extends React.Component<any, any> {
+  inputRef: React.RefObject<Input> = React.createRef<Input>()
 
   searchUsers = () => {
-    const keyword = this.inputRef.current?.input.value;
+    Pubsub.publish('userList', [])
+    const keyword = this.inputRef.current?.input.value
+    if (!keyword) {
+      message.warning('请输入搜索关键字')
+      return
+    }
     axios.get(`https://api.github.com/search/users?q=${keyword}`).then(
       (res) => {
-        const userList: IGithubUser[] = res?.data?.items;
-        console.log(`userList`, userList)
-        userList.length > 0 && this.props.getUserList(userList)
+        const userList: IGithubUser[] = res?.data?.items
+        if (userList.length > 0) {
+          Pubsub.publish('userList', userList)
+        }
       },
       (error) => {
         console.error(error)
@@ -41,12 +43,14 @@ class SearchInput extends React.Component<ISearchInputProps, any> {
             <Input placeholder="please input github username" ref={this.inputRef} />
           </Col>
           <Col className="search-button">
-            <Button type="primary" onClick={this.searchUsers}>Search</Button>
+            <Button type="primary" onClick={this.searchUsers}>
+              Search
+            </Button>
           </Col>
         </Row>
       </div>
-    );
+    )
   }
 }
 
-export default SearchInput;
+export default SearchInput
