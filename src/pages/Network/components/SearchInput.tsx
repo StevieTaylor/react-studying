@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-08-08 22:39:45
- * @LastEditTime: 2021-08-11 10:40:01
+ * @LastEditTime: 2021-08-14 21:57:42
  * @LastEditors: Stevie
  * @Description:
  */
@@ -34,6 +34,22 @@ class SearchInput extends React.Component<any, any> {
     )
   }
 
+  searchUsersByFetch = async () => {
+    Pubsub.publish('userList', [])
+    const keyword = this.inputRef.current?.input.value
+    if (!keyword) {
+      message.warning('请输入搜索关键字')
+      return
+    }
+    try {
+      const response = await fetch(`https://api.github.com/search/users?q=${keyword}`)
+      const data = await response.json();
+      data.items && Pubsub.publish('userList', data.items)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
   render() {
     return (
       <div className="search-wrapper">
@@ -43,7 +59,7 @@ class SearchInput extends React.Component<any, any> {
             <Input placeholder="please input github username" ref={this.inputRef} />
           </Col>
           <Col className="search-button">
-            <Button type="primary" onClick={this.searchUsers}>
+            <Button type="primary" onClick={this.searchUsersByFetch}>
               Search
             </Button>
           </Col>
