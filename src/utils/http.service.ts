@@ -2,7 +2,7 @@
  * @Author: Stevie
  * @Date: 2021-03-28 17:15:01
  * @LastEditors: Stevie
- * @LastEditTime: 2021-04-05 01:20:11
+ * @LastEditTime: 2021-08-17 16:05:20
  * @Description: file content
  */
 import axios, { Method } from 'axios'
@@ -40,7 +40,7 @@ interface IConfig {
  * @param {object} params
  * @return {*}
  */
-export function get(url: string, params: object): Promise<any> {
+export function get(url: string, params?: object): Promise<any> {
     const config: IConfig = {
         method: 'GET',
         withCredentials: true,
@@ -56,7 +56,7 @@ export function get(url: string, params: object): Promise<any> {
  * @param {object} dataBody
  * @return {*}
  */
-export function post(url: string, params: object, data: object): Promise<any> {
+export function post(url: string, params?: object, data?: object): Promise<any> {
     const config: IConfig = {
         method: 'POST',
         headers: {
