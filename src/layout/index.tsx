@@ -2,10 +2,11 @@
  * @Author: Stevie
  * @Date: 2021-03-17 22:29:37
  * @LastEditors: Stevie
- * @LastEditTime: 2021-08-19 15:29:56
+ * @LastEditTime: 2021-08-19 16:34:22
  * @Description: file content
  */
 import './index.less'
+import logo from '../logo.png';
 import Menus from './Menu'
 import React, { Component } from 'react'
 import { Layout } from 'antd'
@@ -42,7 +43,8 @@ class PageLayout extends Component<any, any> {
       <Layout>
         <Sider className="sider" trigger={null} collapsible collapsed={this.state.collapsed} theme="light">
           <div className="sider-logo">
-            <Link to="/home">{this.title}</Link>
+            <img src={logo} alt="logo" width="26" className="sider-logo-img" />
+            <Link to="/home" className="sider-logo-title">{this.state.collapsed ? null : this.title}</Link>
           </div>
           <div className="sider-menus">
             <Menus />
