@@ -1,15 +1,15 @@
 /*
  * @Author: Stevie
  * @Date: 2021-06-25 10:12:52
- * @LastEditTime: 2021-06-25 17:18:46
+ * @LastEditTime: 2021-08-19 14:24:16
  * @LastEditors: Stevie
  * @Description:
  */
 import { message } from 'antd';
-import * as React from 'react';
+import React, { FC, useRef } from 'react';
 
-const UseRef: React.FC = () => {
-  const inputRef = React.useRef<HTMLInputElement>(null);
+const GetDOM: FC = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const showInputValue = (): void => {
     const value = inputRef.current?.value;
@@ -18,20 +18,32 @@ const UseRef: React.FC = () => {
 
   return (
     <div>
+      <h3 className="h3-ref">1. 获取元素</h3>
+      <div className="form-item">
+        <label>姓名:</label>
+        <input ref={inputRef} placeholder="请输入姓名" style={{ marginRight: '8px' }}></input>
+        <button className="primary-button" onClick={showInputValue}>
+          显示
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const CacheData: FC = () => {
+  return (
+    <div>
+      <h3 className="h3-ref">2. 缓存数据</h3>
+    </div>
+  );
+};
+
+const UseRef: FC = () => {
+  return (
+    <div>
       <h2>三、useRef</h2>
-      <div>
-        <h4 className="h4-ref">获取元素</h4>
-        <div className="form-item">
-          <label>姓名:</label>
-          <input ref={inputRef} placeholder="请输入姓名"></input>
-          <button className="primary-button" onClick={showInputValue}>
-            显示
-          </button>
-        </div>
-      </div>
-      <div>
-        <h4 className="h4-ref">缓存数据</h4>
-      </div>
+      <GetDOM />
+      <CacheData />
     </div>
   );
 };
