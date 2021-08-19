@@ -2,75 +2,61 @@
  * @Author: Stevie
  * @Date: 2021-03-17 22:29:37
  * @LastEditors: Stevie
- * @LastEditTime: 2021-05-09 17:52:12
+ * @LastEditTime: 2021-08-19 15:29:56
  * @Description: file content
  */
+import './index.less'
+import Menus from './Menu'
 import React, { Component } from 'react'
 import { Layout } from 'antd'
-import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined
-} from '@ant-design/icons'
-import './index.less'
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import { Route, withRouter, Link } from 'react-router-dom'
 import { IRouterProps, ROUTES } from '../router/config'
-import Menus from './Menu';
 const { Header, Sider, Content } = Layout
 
 class PageLayout extends Component<any, any> {
+  title: string = 'React 学习指北'
   state = {
-    collapsed: false,
+    collapsed: false
   }
 
   direct = ({ item, key, keyPath, domEvent }): void => {
     // console.log(this.props)
-    this.props.history.push(key);
+    this.props.history.push(key)
   }
 
   toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    })
+    this.setState({ collapsed: !this.state.collapsed })
   }
 
   handleRoutes = ({ children, path, component }: IRouterProps) => {
     if (Array.isArray(children) && children.length) {
-      return children.map(this.handleRoutes);
+      return children.map(this.handleRoutes)
     } else {
-      return (
-        <Route
-          key={`${path}`}
-          path={path}
-          component={component}
-        />
-      )
+      return <Route key={`${path}`} path={path} component={component} />
     }
   }
 
   render() {
     return (
       <Layout>
-        <Sider trigger={null} collapsible collapsed={this.state.collapsed} theme="light">
+        <Sider className="sider" trigger={null} collapsible collapsed={this.state.collapsed} theme="light">
           <div className="sider-logo">
-            <Link to='/home'>React 学习指北</Link>
+            <Link to="/home">{this.title}</Link>
           </div>
-          <Menus />
+          <div className="sider-menus">
+            <Menus />
+          </div>
         </Sider>
+
         <Layout className="layout">
           <Header className="layout-header" style={{ padding: 0 }}>
-            {React.createElement(
-              this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-              {
-                className: 'trigger',
-                onClick: this.toggle,
-              },
-            )}
+            {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+              className: 'trigger',
+              onClick: this.toggle
+            })}
           </Header>
-          <Content className="layout-content">
-            {
-              ROUTES.map(this.handleRoutes)
-            }
-          </Content>
+          <Content className="layout-content">{ROUTES.map(this.handleRoutes)}</Content>
         </Layout>
       </Layout>
     )

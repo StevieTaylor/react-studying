@@ -1,43 +1,57 @@
-.sider-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 64px;
-  background: #1166b0;
-  color: #fff;
-  font-size: 17px;
-  text-align: center;
-  cursor: pointer;
-  a {
-    color: inherit;
-  }
+.sider {
+	height: 100vh;
+
+	.sider-menus {
+		height: 90vh;
+		overflow: auto;
+	}
+
+	.sider-menus::-webkit-scrollbar {
+		display: none;
+	}
+
+	.sider-logo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 64px;
+		background: #1166b0;
+		color: #fff;
+		font-size: 17px;
+		text-align: center;
+		cursor: pointer;
+		a {
+			color: inherit;
+		}
+	}
 }
 
 .layout {
-  height: 100vh;
-  background: #fff;
-  .layout-header {
-    background: #1166b0;
-    color: #fff;
-  }
+	height: 100vh;
+	background: #fff;
 
-  .layout-content {
-    margin: 20px;
-    padding: 20px;
-    background-color: #fff;
-    overflow: auto;
-  }
-}
+	.layout-header {
+		background: #1166b0;
+		color: #fff;
 
-.trigger {
-  color: #fff;
-  padding: 0 24px;
-  font-size: 18px;
-  line-height: 64px;
-  cursor: pointer;
-  transition: color 0.3s;
-}
+		.trigger {
+			color: #fff;
+			padding: 0 24px;
+			font-size: 18px;
+			line-height: 64px;
+			cursor: pointer;
+			transition: color 0.3s;
+		}
 
-.trigger:hover {
-  color: #1890ff;
+		.trigger:hover {
+			color: #1890ff;
+		}
+	}
+
+	.layout-content {
+		margin: 20px;
+		padding: 20px;
+		background-color: #fff;
+		overflow: auto;
+	}
 }
