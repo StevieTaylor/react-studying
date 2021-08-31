@@ -2,7 +2,7 @@
  * @Author: Stevie
  * @Date: 2021-03-17 22:29:37
  * @LastEditors: Stevie
- * @LastEditTime: 2021-08-19 16:34:22
+ * @LastEditTime: 2021-08-31 15:25:20
  * @Description: file content
  */
 import './index.less'
@@ -11,7 +11,7 @@ import Menus from './Menu'
 import React, { Component } from 'react'
 import { Layout } from 'antd'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
-import { Route, withRouter, Link } from 'react-router-dom'
+import { Route, withRouter, Link, Switch, Redirect } from 'react-router-dom'
 import { IRouterProps, ROUTES } from '../router/config'
 const { Header, Sider, Content } = Layout
 
@@ -30,11 +30,11 @@ class PageLayout extends Component<any, any> {
     this.setState({ collapsed: !this.state.collapsed })
   }
 
-  handleRoutes = ({ children, path, component }: IRouterProps) => {
+  handleRoutes = ({ children, path, component, exact }: IRouterProps) => {
     if (Array.isArray(children) && children.length) {
       return children.map(this.handleRoutes)
     } else {
-      return <Route key={`${path}`} path={path} component={component} />
+      return <Route key={`${path}`} path={path} component={component} exact={exact} />
     }
   }
 
@@ -58,7 +58,12 @@ class PageLayout extends Component<any, any> {
               onClick: this.toggle
             })}
           </Header>
-          <Content className="layout-content">{ROUTES.map(this.handleRoutes)}</Content>
+          <Content className="layout-content">
+            <Switch>
+              {ROUTES.map(this.handleRoutes)}
+              <Route render={() => <Redirect to="/404" />} />
+            </Switch>
+          </Content>
         </Layout>
       </Layout>
     )
