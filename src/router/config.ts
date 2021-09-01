@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-08-31 15:33:53
+ * @LastEditTime: 2021-09-01 17:10:59
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -27,6 +27,7 @@ import UseRef from "@pages/ReactHooks/components/UseRef";
 import UseReducer from "@pages/ReactHooks/components/UseReducer";
 import Network from "@pages/Network";
 import NotFound from "@/pages/Exceptions/NotFound";
+import Context from "@/pages/Context";
 
 export interface IRouterProps {
     path: string;
@@ -187,6 +188,13 @@ export const ROUTES: IRouterProps[] = [
         component: NotFound,
         icon: 'gouwu',
         title: 'Not Found'
+    },
+    {
+        path: '/context',
+        exact: true,
+        component: Context,
+        icon: 'shijian',
+        title: 'Context'
     }
 ]
 
