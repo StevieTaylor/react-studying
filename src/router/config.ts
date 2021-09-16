@@ -1,33 +1,33 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-09-01 17:10:59
+ * @LastEditTime: 2021-09-16 15:29:14
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
  */
 import { RouteComponentProps } from "react-router-dom";
-import Home from '@pages/Home';
-import JSX from '@pages/JSX';
-import Components from '@pages/Components';
-import State from '@pages/State';
-import Props from '@pages/Props';
-import Refs from '@pages/Refs';
-import OldLifecycle from '@pages/Lifecycle/OldLifecycle';
-import NewLifecycle from '@pages/Lifecycle/NewLifecycle';
-import ReduxDemo from "@pages/Redux";
-import HandlingEvents from "@pages/HandlingEvents";
-import Forms from "@pages/Forms";
-import HighOrderFunction from "@pages/HighOrderFunction";
-import DiffingAlgorithm from "@pages/DiffingAlgorithm";
-import Hooks from "@pages/ReactHooks/components/Hooks";
-import UseState from "@pages/ReactHooks/components/UseState";
-import UseEffect from "@pages/ReactHooks/components/UseEffect";
-import UseRef from "@pages/ReactHooks/components/UseRef";
-import UseReducer from "@pages/ReactHooks/components/UseReducer";
-import Network from "@pages/Network";
-import NotFound from "@/pages/Exceptions/NotFound";
-import Context from "@/pages/Context";
+import Home from '../pages/Home';
+import JSX from '../pages/JSX';
+import Components from '../pages/Components';
+import State from '../pages/State';
+import Props from '../pages/Props';
+import Refs from '../pages/Refs';
+import OldLifecycle from '../pages/Lifecycle/OldLifecycle';
+import NewLifecycle from '../pages/Lifecycle/NewLifecycle';
+import ReduxDemo from "../pages/Redux";
+import HandlingEvents from "../pages/HandlingEvents";
+import Forms from "../pages/Forms";
+import HighOrderFunction from "../pages/HighOrderFunction";
+import DiffingAlgorithm from "../pages/DiffingAlgorithm";
+import Hooks from "../pages/ReactHooks/components/Hooks";
+import UseState from "../pages/ReactHooks/components/UseState";
+import UseEffect from "../pages/ReactHooks/components/UseEffect";
+import UseRef from "../pages/ReactHooks/components/UseRef";
+import UseReducer from "../pages/ReactHooks/components/UseReducer";
+import Network from "../pages/Network";
+import NotFound from "../pages/Exceptions/NotFound";
+import Context from "../pages/Context";
 
 export interface IRouterProps {
     path: string;
