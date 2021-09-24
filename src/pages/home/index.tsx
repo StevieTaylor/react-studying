@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-09-11 17:15:24
- * @LastEditTime: 2021-09-24 11:12:49
+ * @LastEditTime: 2021-09-24 15:13:08
  * @LastEditors: Stevie
  * @Description:
  */
@@ -9,6 +9,7 @@ import React from 'react'
 import { Col, Row } from 'antd'
 import Community from './components/Community'
 import Statistics from './components/Statistics'
+import Introduction from './components/Introduction/index'
 
 class Home extends React.Component {
 	render() {
@@ -22,7 +23,9 @@ class Home extends React.Component {
 						<Col span={16}>
 							<Statistics />
 						</Col>
-						<Col span={8}></Col>
+						<Col span={8}>
+							<Introduction />
+						</Col>
 					</Row>
 				</div>
 			</div>
