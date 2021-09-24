@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-09-23 15:47:51
- * @LastEditTime: 2021-09-23 18:16:28
+ * @LastEditTime: 2021-09-23 18:28:44
  * @LastEditors: Stevie
  * @Description:
  */
@@ -56,8 +56,8 @@ const Community: React.FC = () => {
 		}
 	]
 
-	const renderTitle = (communitiy: ICommunity) => {
-		const { icon, title, trend } = communitiy
+	const renderTitle = (community: ICommunity) => {
+		const { icon, title, trend } = community
 		return (
 			<Row gutter={16}>
 				<Col span={3}>{icon}</Col>
@@ -71,15 +71,15 @@ const Community: React.FC = () => {
 		)
 	}
 
-	const renderContent = (communitiy: ICommunity) => {
+	const renderContent = (community: ICommunity) => {
 		return (
 			<Row gutter={16} className="content">
 				<Col span={12}>
-					<h2>{communitiy.followers}</h2>
+					<h2>{community.followers}</h2>
 					<div style={{ paddingLeft: 2 }}>Followers</div>
 				</Col>
 				<Col span={12} className="progress">
-					<Progress type="circle" percent={communitiy.progress} width={68} status="active" />
+					<Progress type="circle" percent={community.progress} width={68} status="active" />
 				</Col>
 			</Row>
 		)
