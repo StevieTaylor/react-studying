@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-09-24 14:20:58
- * @LastEditTime: 2021-09-24 17:32:59
+ * @LastEditTime: 2021-09-27 14:20:31
  * @LastEditors: Stevie
  * @Description:
  */
@@ -15,13 +15,13 @@ const Introduction: React.FC = () => {
 		<Card style={{ height: 400 }} title="Introduction">
 			<div className="introduction">
 				<div className="avatar">
-					<Avatar src={avatarUrl} size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 150, xxl: 200 }} />
+					<Avatar src={avatarUrl} size={140}/>
 				</div>
 				<div className="username">Stevie Taylor</div>
 				<div className="info">
 					<div className="info-section">
 						<p>161</p>
-						<span>Post</span>
+						<span>Posts</span>
 					</div>
 					<div className="info-section">
 						<p>6</p>
