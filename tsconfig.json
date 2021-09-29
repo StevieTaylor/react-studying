@@ -1,4 +1,5 @@
 {
+  "extends": "./path.json",
   "compilerOptions": {
     "rootDir": "./",
     "target": "es5",
@@ -26,6 +27,5 @@
   },
   "include": [
     "src"
-  ],
-  "extends": "./path.json"
+  ]
 }
