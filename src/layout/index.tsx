@@ -2,14 +2,14 @@
  * @Author: Stevie
  * @Date: 2021-03-17 22:29:37
  * @LastEditors: Stevie
- * @LastEditTime: 2021-09-16 17:33:33
+ * @LastEditTime: 2021-09-29 14:38:25
  * @Description: file content
  */
 import './index.less'
 import logo from '../logo.png'
 import Menus from './Menu'
 import React, { Component } from 'react'
-import Home from '@/pages/Home'
+import Home from '@pages/Home'
 import { Layout } from 'antd'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import { Route, withRouter, Link, Switch, Redirect } from 'react-router-dom'
