@@ -1,14 +1,14 @@
 /*
  * @Author: Stevie
  * @Date: 2021-06-06 17:14:31
- * @LastEditTime: 2021-09-29 14:43:18
+ * @LastEditTime: 2021-09-29 15:21:36
  * @LastEditors: Stevie
  * @Description: Redux版简易计算器
  */
 import * as React from 'react';
 import './style.less';
 import { Button, Col, message, Row, Select, Space } from 'antd';
-import store from 'src/store';
+import store from '../../../store/';
 import { CalculatorActions as actions } from '@store/actions';
 import { IAction } from '@entity/common.entity';
 const { Option } = Select;
