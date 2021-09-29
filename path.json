@@ -3,28 +3,28 @@
         "baseUrl": "src",
         "paths": {
             "@/*": [
-                "*"
+                "src/*"
             ],
             "@pages/*": [
-                "pages/*"
+                "src/pages/*"
             ],
             "@entity/*": [
-                "entity/*"
+                "src/entity/*"
             ],
             "@store/*": [
-                "store/*"
+                "src/store/*"
             ],
             "@styles/*": [
-                "styles/*"
+                "src/styles/*"
             ],
             "@utils/*": [
-                "utils/*"
+                "src/utils/*"
             ],
             "@images/*": [
-                "images/*"
+                "src/images/*"
             ],
-            "@components/*":[
-                "components/*"
+            "@components/*": [
+                "src/components/*"
             ]
         }
     }
