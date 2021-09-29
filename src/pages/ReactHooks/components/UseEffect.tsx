@@ -2,16 +2,16 @@
 /*
  * @Author: Stevie
  * @Date: 2021-06-25 10:13:47
- * @LastEditTime: 2021-08-18 16:28:10
+ * @LastEditTime: 2021-09-29 14:42:49
  * @LastEditors: Stevie
  * @Description:
  */
 import '../index.less';
 import { useState, useEffect, FC } from 'react';
-import { IUserInfo } from '@/entity/user.entity';
+import { IUserInfo } from '@entity/user.entity';
 import { Card, Descriptions } from 'antd';
 import Pubsub from 'pubsub-js';
-import { Girl } from '@/entity/person.entity';
+import { Girl } from '@entity/person.entity';
 const { Item } = Descriptions;
 const { Meta } = Card;
 

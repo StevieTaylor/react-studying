@@ -1,13 +1,13 @@
 /*
  * @Author: Stevie
  * @Date: 2021-08-08 22:40:20
- * @LastEditTime: 2021-08-11 17:20:04
+ * @LastEditTime: 2021-09-29 14:41:31
  * @LastEditors: Stevie
  * @Description:
  */
 import * as React from 'react'
 import { Card } from 'antd'
-import { IGithubUser } from '@/entity/user.entity'
+import { IGithubUser } from '@entity/user.entity'
 import Pubsub from 'pubsub-js'
 const { Meta } = Card
 

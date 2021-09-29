@@ -1,12 +1,12 @@
 /*
  * @Author: Stevie
  * @Date: 2021-06-28 14:26:57
- * @LastEditTime: 2021-06-29 15:28:49
+ * @LastEditTime: 2021-09-29 14:41:50
  * @LastEditors: Stevie
  * @Description:
  */
 import * as React from 'react'
-import Section, { ISection } from '@/components/section'
+import Section, { ISection } from '@components/section'
 import { Typography } from 'antd'
 import ThisProblem from './ThisProblem'
 const { Title } = Typography

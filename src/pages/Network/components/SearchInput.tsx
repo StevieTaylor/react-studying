@@ -1,14 +1,14 @@
 /*
  * @Author: Stevie
  * @Date: 2021-08-08 22:39:45
- * @LastEditTime: 2021-08-14 21:57:42
+ * @LastEditTime: 2021-09-29 14:43:33
  * @LastEditors: Stevie
  * @Description:
  */
 import * as React from 'react'
 import { Input, Row, Col, Button, message } from 'antd'
 import axios from 'axios'
-import { IGithubUser } from '@/entity/user.entity'
+import { IGithubUser } from '@entity/user.entity'
 import Pubsub from 'pubsub-js'
 
 class SearchInput extends React.Component<any, any> {

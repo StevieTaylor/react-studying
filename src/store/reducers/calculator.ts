@@ -1,11 +1,11 @@
 /*
  * @Author: Stevie
  * @Date: 2021-06-06 19:46:56
- * @LastEditTime: 2021-06-06 22:20:39
+ * @LastEditTime: 2021-09-29 14:43:27
  * @LastEditors: Stevie
  * @Description:
  */
-import { IAction } from '@/entity/common.entity';
+import { IAction } from '@entity/common.entity';
 import { CalculatorActionTypes } from '../action-types';
 
 const initState = 0;
