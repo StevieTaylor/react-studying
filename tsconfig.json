@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "rootDir": "./",
     "target": "es5",
     "lib": [
       "dom",
@@ -25,7 +24,7 @@
     "noImplicitAny": false
   },
   "include": [
-    "src/*"
+    "src"
   ],
   "extends": "./path.json",
 }
