@@ -1,5 +1,4 @@
 {
-  "extends": "./path.json",
   "compilerOptions": {
     "rootDir": "./",
     "target": "es5",
@@ -24,5 +23,9 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "noImplicitAny": false
-  }
+  },
+  "include": [
+    "src/*"
+  ],
+  "extends": "./path.json",
 }
