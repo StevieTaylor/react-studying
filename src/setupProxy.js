@@ -1,18 +1,17 @@
 /*
  * @Author: Stevie
  * @Date: 2021-08-08 20:49:21
- * @LastEditTime: 2021-08-08 21:01:05
+ * @LastEditTime: 2021-12-23 14:42:55
  * @LastEditors: Stevie
  * @Description:
  */
-const proxy = require('http-proxy-middleware')
+const { createProxyMiddleware } = require('http-proxy-middleware')
 
 module.exports = function (app) {
 	app.use(
-		proxy('/api', {
-			target: 'http://localhost:5000',
-			changeOrigin: true,
-			pathRewrite: { '^/api': '' }
+		createProxyMiddleware('/djapi', {
+			target: 'https://danjuanfunds.com',
+			changeOrigin: true
 		})
 	)
 }
