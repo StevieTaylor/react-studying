@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-12-23 15:07:00
- * @LastEditTime: 2021-12-23 16:24:14
+ * @LastEditTime: 2021-12-24 10:08:29
  * @LastEditors: Stevie
  * @Description:
  */
@@ -32,11 +32,3 @@ export enum FundTypeEnum {
 type enumValueToUnion<T> = T extends `${infer R}` ? R : never
 
 export type FundType = enumValueToUnion<FundTypeEnum>
-
-export function getEnumKeyByValue<Key extends string, Value extends string | number>(
-  _enum: { [k in Key]: Value },
-  value: Value
-): string {
-  const keys = (Object.keys(_enum) as Key[]).filter((x) => _enum[x] === value)
-  return keys.length > 0 ? keys[0] : ''
-}

@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-05-09 22:27:09
- * @LastEditTime: 2021-11-15 21:36:38
+ * @LastEditTime: 2021-12-24 10:09:17
  * @LastEditors: Stevie
  * @Description: 工具服务
  */
@@ -35,4 +35,17 @@ export const debounce = (func: Function, wait: number, immediate: boolean) => {
       }, 1000 * wait)
     }
   }
+}
+
+/**
+ * @description: 根据枚举value获得key
+ * @param {*}
+ * @return {*}
+ */
+export function getEnumKeyByValue<Key extends string, Value extends string | number>(
+  _enum: { [k in Key]: Value },
+  value: Value
+): string {
+  const keys = (Object.keys(_enum) as Key[]).filter((x) => _enum[x] === value)
+  return keys.length > 0 ? keys[0] : ''
 }

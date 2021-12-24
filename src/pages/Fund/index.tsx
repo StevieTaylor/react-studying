@@ -1,16 +1,18 @@
 /*
  * @Author: Stevie
  * @Date: 2021-12-23 10:43:15
- * @LastEditTime: 2021-12-23 19:07:30
+ * @LastEditTime: 2021-12-24 10:09:44
  * @LastEditors: Stevie
  * @Description:
  */
 import * as React from 'react'
 import FundHttpService from './services/fund.httpservice'
 import { IPagination } from '@/entity/common.entity'
-import { FundType, FundTypeEnum, getEnumKeyByValue, IFund } from './model'
+import { FundType, FundTypeEnum, IFund } from './model'
 import { ColumnsType } from 'antd/es/table'
 import { Col, Row, Select, Table } from 'antd'
+import { getEnumKeyByValue } from '@/utils/util.service'
+
 const { Option } = Select
 
 const Fund: React.FC = () => {
