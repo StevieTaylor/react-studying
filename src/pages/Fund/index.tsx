@@ -1,14 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /*
  * @Author: Stevie
  * @Date: 2021-12-23 10:43:15
- * @LastEditTime: 2021-12-24 10:09:44
+ * @LastEditTime: 2021-12-24 13:30:35
  * @LastEditors: Stevie
  * @Description:
  */
 import * as React from 'react'
 import FundHttpService from './services/fund.httpservice'
 import { IPagination } from '@/entity/common.entity'
-import { FundType, FundTypeEnum, IFund } from './model'
+import { FundType, FundTypeEnum, IFund, OrderBy, OrderByEnum } from './model'
 import { ColumnsType } from 'antd/es/table'
 import { Col, Row, Select, Table } from 'antd'
 import { getEnumKeyByValue } from '@/utils/util.service'
@@ -17,43 +18,61 @@ const { Option } = Select
 
 const Fund: React.FC = () => {
   const fundHttpService = new FundHttpService()
-  const [pagination, setPagination] = React.useState<IPagination>({ pageNo: 1, pageSize: 20 })
+  const [tableLoading, setTableLoading] = React.useState<boolean>(false)
+  const [pagination, setPagination] = React.useState<IPagination>({ pageNo: 1, pageSize: 100 })
+  const [totalCount, setTotalCount] = React.useState<number>()
   const [fundList, setFundList] = React.useState<any[]>()
   const [fundType, setFundType] = React.useState<FundType>(FundTypeEnum.指数型)
+  const [filterPeriod, setFilterPeriod] = React.useState<OrderBy>(OrderByEnum.近一年)
 
   React.useEffect(() => {
-    _getFundList()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    getSuperiorFund()
   }, [])
 
-  const _getFundList = () => {
-    const params = {
-      type: fundType,
-      order_by: '3y',
-      size: 500,
-      page: 1
-    }
-    fundHttpService.getFundList(params).then((res) => {
+  const getSuperiorFund = () => {
+    getFundList(FundTypeEnum.指数型, OrderByEnum.近一年, 1, 100)
+  }
+
+  const getFundList = (type: FundType, order_by: OrderBy, page: number = 1, size: number = 100) => {
+    setTableLoading(true)
+    fundHttpService.queryFundList({ type, order_by, size, page }).then((res) => {
       const { data } = res
       if (data) {
         const result = data?.data
-        // console.log('result.item :>> ', result.items);
         setFundList(result.items)
+        setTotalCount(result.total_items)
+        setTableLoading(false)
       }
     })
   }
 
+  const handleFundTypeChange = (type: FundType) => {
+    setFundType(type)
+    getFundList(type, filterPeriod)
+  }
+
+  const handleFilterPeriodChange = (period: OrderBy) => {
+    setFilterPeriod(period)
+    getFundList(fundType, period)
+  }
+
   const SearchBar: React.FC = () => {
     const labelStyle: React.CSSProperties = { lineHeight: '32px', textAlign: 'center' }
+    const controlStyle: React.CSSProperties = { width: '100%' }
     return (
       <Row style={{ height: 60 }}>
-        <Col span={8}>
+        <Col span={8} xl={8} xxl={4}>
           <Row>
             <Col span={5} style={labelStyle}>
               <span>基金类型:</span>
             </Col>
             <Col span={16}>
-              <Select style={{ width: '100%' }}>
+              <Select
+                style={controlStyle}
+                placeholder="请选择基金类型"
+                value={fundType}
+                onChange={handleFundTypeChange}
+              >
                 {Object.keys(FundTypeEnum).map((label) => {
                   const value = FundTypeEnum[label]
                   return (
@@ -67,15 +86,20 @@ const Fund: React.FC = () => {
           </Row>
         </Col>
 
-        <Col span={8}>
+        <Col span={8} xl={8} xxl={4}>
           <Row>
-            <Col span={4} style={labelStyle}>
-              <span>时间段:</span>
+            <Col span={5} style={labelStyle}>
+              <span>筛选时间:</span>
             </Col>
             <Col span={16}>
-              <Select style={{ width: '100%' }}>
-                {Object.keys(FundTypeEnum).map((label) => {
-                  const value = FundTypeEnum[label]
+              <Select
+                style={controlStyle}
+                placeholder="请选择筛选时间"
+                value={filterPeriod}
+                onChange={handleFilterPeriodChange}
+              >
+                {Object.keys(OrderByEnum).map((label) => {
+                  const value = OrderByEnum[label]
                   return (
                     <Option key={value} value={value}>
                       {label}
@@ -123,7 +147,7 @@ const Fund: React.FC = () => {
       width: '15%',
       align: 'center',
       key: 'rate',
-      title: '增长率',
+      title: '收益率',
       dataIndex: 'yield',
       render: (rate: string) => {
         if (!rate) {
@@ -149,17 +173,20 @@ const Fund: React.FC = () => {
         rowKey={(fund) => fund.fd_code}
         columns={tableColumns}
         dataSource={fundList}
+        loading={tableLoading}
         pagination={{
+          total: totalCount,
           pageSize: pagination.pageSize,
+          showQuickJumper: true,
+          showTotal: (total: number) => `总共 ${total} 支`,
           onChange: (pageNo, pageSize) => {
-            setPagination({
-              pageNo,
-              pageSize
-            })
+            setPagination({ pageNo, pageSize })
+            getFundList(fundType, filterPeriod, pageNo, pageSize)
           }
         }}
       />
     </div>
   )
 }
+
 export default Fund

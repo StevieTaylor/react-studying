@@ -1,7 +1,7 @@
 /*
 * @Author: Stevie
 * @Date: 2021-12-23 14:45:08
- * @LastEditTime: 2021-12-23 15:43:30
+ * @LastEditTime: 2021-12-24 11:12:14
  * @LastEditors: Stevie
 * @Description: 
 */
@@ -12,7 +12,7 @@ export default class FundHttpService {
 
   private BASEURL = '/djapi/v3/filter/fund'
 
-  getFundList = (params: IQueryFundParams): Promise<any> => {
+  queryFundList = (params: IQueryFundParams): Promise<any> => {
     return get(this.BASEURL, params)
   }
 }

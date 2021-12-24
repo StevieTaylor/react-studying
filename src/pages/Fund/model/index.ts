@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-12-23 15:07:00
- * @LastEditTime: 2021-12-24 10:08:29
+ * @LastEditTime: 2021-12-24 10:15:52
  * @LastEditors: Stevie
  * @Description:
  */
@@ -29,6 +29,22 @@ export enum FundTypeEnum {
   指数型 = '5'
 }
 
+export enum OrderByEnum {
+  日涨幅 = 'td',
+  近一周 = '1w',
+  近一月 = '1m',
+  近三月 = '3m',
+  近六月 = '6m',
+  今年以来 = 'ty',
+  近一年 = '1y',
+  近两年 = '2y',
+  近三年 = '3y',
+  近五年 = '5y',
+  成立以来 = 'base'
+}
+
 type enumValueToUnion<T> = T extends `${infer R}` ? R : never
 
 export type FundType = enumValueToUnion<FundTypeEnum>
+
+export type OrderBy = enumValueToUnion<OrderByEnum>
