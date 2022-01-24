@@ -2,7 +2,7 @@
  * @Author: Stevie
  * @Date: 2021-03-17 22:29:37
  * @LastEditors: Stevie
- * @LastEditTime: 2021-09-29 14:38:25
+ * @LastEditTime: 2022-01-24 17:51:13
  * @Description: file content
  */
 import './index.less'
@@ -14,6 +14,7 @@ import { Layout } from 'antd'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import { Route, withRouter, Link, Switch, Redirect } from 'react-router-dom'
 import { IRouterProps, ROUTES } from '../router/config'
+import NotFound from '@/pages/Exceptions/NotFound'
 
 const { Header, Sider, Content } = Layout
 
@@ -64,6 +65,7 @@ class PageLayout extends Component<any, any> {
 					</Header>
 					<Content className="layout-content">
 						<Switch>
+							<Route path="/404" component={NotFound} exact={true} />
 							<Route path="/" component={Home} exact={true} />
 							{ROUTES.map(this.handleRoutes)}
 							<Route render={() => <Redirect to="/404" />} />
