@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-05-09 22:27:09
- * @LastEditTime: 2021-12-24 10:09:17
+ * @LastEditTime: 2022-01-24 17:26:50
  * @LastEditors: Stevie
  * @Description: 工具服务
  */
@@ -48,4 +48,8 @@ export function getEnumKeyByValue<Key extends string, Value extends string | num
 ): string {
   const keys = (Object.keys(_enum) as Key[]).filter((x) => _enum[x] === value)
   return keys.length > 0 ? keys[0] : ''
+}
+
+export const getRandomString = () => {
+  return Math.random().toString(36).slice(2)
 }

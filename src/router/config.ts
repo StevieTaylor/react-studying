@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2022-01-24 14:03:00
+ * @LastEditTime: 2022-01-24 17:44:40
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -28,6 +28,7 @@ import UseReducer from "../pages/ReactHooks/components/UseReducer";
 import Network from "../pages/Network";
 import Context from "../pages/Context";
 import UseMemo from "../pages/ReactHooks/components/UseMemo";
+import ReactRouter from "@/pages/ReactRouter";
 
 export interface IRouterProps {
     path: string;
@@ -194,6 +195,20 @@ export const ROUTES: IRouterProps[] = [
         component: Context,
         icon: 'shijian',
         title: 'Context'
+    },
+    {
+        path: '/react-router',
+        exact: true,
+        icon: 'liebiao',
+        title: 'React Router',
+        children: [
+            {
+                path: '/workers',
+                exact: true,
+                title: 'worker list',
+                component: ReactRouter
+            }
+        ]
     }
 ]
 
