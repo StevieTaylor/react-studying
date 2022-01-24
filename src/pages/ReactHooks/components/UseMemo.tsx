@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-11-09 17:39:13
- * @LastEditTime: 2021-11-22 16:52:39
+ * @LastEditTime: 2022-01-24 14:04:41
  * @LastEditors: Stevie
  * @Description:
  */
@@ -9,7 +9,7 @@ import { debounce } from '@/utils/util.service'
 import { Button } from 'antd'
 import * as React from 'react'
 
-const Parent: React.FC = () => {
+export const Parent: React.FC = () => {
 
   const [count, setCount] = React.useState<number>(0);
   return (

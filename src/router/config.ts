@@ -1,7 +1,7 @@
 /*
  * @Author: Stevie
  * @Date: 2021-03-27 14:49:21
- * @LastEditTime: 2021-12-23 10:45:54
+ * @LastEditTime: 2022-01-24 14:03:00
  * @LastEditors: Stevie
  * @Description: 
  * @FilePath: /react-learning-demo/src/router/config.ts
@@ -26,10 +26,8 @@ import UseEffect from "../pages/ReactHooks/components/UseEffect";
 import UseRef from "../pages/ReactHooks/components/UseRef";
 import UseReducer from "../pages/ReactHooks/components/UseReducer";
 import Network from "../pages/Network";
-import NotFound from "../pages/Exceptions/NotFound";
 import Context from "../pages/Context";
 import UseMemo from "../pages/ReactHooks/components/UseMemo";
-import Fund from "../pages/Fund";
 
 export interface IRouterProps {
     path: string;
@@ -187,15 +185,8 @@ export const ROUTES: IRouterProps[] = [
         path: '/network',
         exact: true,
         component: Network,
-        icon: 'gouwu',
+        icon: 'kuaijian',
         title: 'Network'
-    },
-    {
-        path: '/404',
-        exact: true,
-        component: NotFound,
-        icon: 'gouwu',
-        title: 'Not Found'
     },
     {
         path: '/context',
@@ -203,13 +194,6 @@ export const ROUTES: IRouterProps[] = [
         component: Context,
         icon: 'shijian',
         title: 'Context'
-    },
-    {
-        path: '/fund',
-        exact: true,
-        component: Fund,
-        icon: 'gouwu',
-        title: 'Fund'
     }
 ]
 
