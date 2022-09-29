@@ -9,7 +9,7 @@ import React from 'react'
 import { Col, Row } from 'antd'
 import Community from './components/Community'
 import Statistics from './components/Statistics'
-import Introduction from './components/Introduction/index'
+import Introduction from './components/Introduction'
 
 class Home extends React.Component {
 	render() {

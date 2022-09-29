@@ -7,9 +7,9 @@
  * @FilePath: /react-learning-demo/src/router/config.ts
  */
 import { RouteComponentProps } from "react-router-dom";
-import Home from '../pages/Home';
+import Home from '../pages/home';
 import JSX from '../pages/JSX';
-import Components from '../pages/Components';
+import Components from '../pages/components';
 import State from '../pages/State';
 import Props from '../pages/Props';
 import Refs from '../pages/Refs';
